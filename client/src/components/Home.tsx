@@ -1,4 +1,4 @@
-import "../assets/styles/home.css";
+import "../assets/styles/Home.css";
 import "../assets/fonts/fonts.css";
 import { useEffect, useRef, useState } from "react";
 import Typed from "typed.js";
