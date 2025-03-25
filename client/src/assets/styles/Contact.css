@@ -83,7 +83,7 @@
     padding: 14px;
     border-radius: 8px;
     cursor: pointer;
-    transition: 0.1s ease-in-out;
+    transition: 0.3s ease-in-out;
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.8);
     text-transform: uppercase;
 }
@@ -92,7 +92,6 @@
     background: black;
     color: white;
     box-shadow: 0px 0px 15px white;
-    border: 2px solid white;
     box-sizing: border-box;
 }
 

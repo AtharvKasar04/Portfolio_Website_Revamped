@@ -22,7 +22,7 @@ const projects: Project[] = [
         techStack: ['ReactJS', 'NodeJS', 'ExpressJS', 'MongoDB'],
         image: MaharashtraFarmsImg,
         githubLink: "",
-        deployment: ""
+        deployment: "https://maharashtrafarms.com"
     },
     {
         name: "Freelance Work - Plant Rental Startup's website",

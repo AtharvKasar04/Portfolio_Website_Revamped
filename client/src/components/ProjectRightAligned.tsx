@@ -67,22 +67,16 @@ const ProjectRightAligned: React.FC<ProjectProps> = ({ name, description, techSt
           ))}
         </div>
         <div className="projectActionButtons">
-          <motion.a
-            href={githubLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            variants={{ hidden: { opacity: 0, x: 30 }, visible: { opacity: 1, x: 0, transition: { delay: 0.6 } } }}
-          >
-            <button className="githubButton">Github &lt;&gt;</button>
-          </motion.a>
-          <motion.a
-            href={deployment}
-            target="_blank"
-            rel="noopener noreferrer"
-            variants={{ hidden: { opacity: 0, x: 30 }, visible: { opacity: 1, x: 0, transition: { delay: 0.8 } } }}
-          >
-            <button className="deploymentButton">Deployment</button>
-          </motion.a>
+        {githubLink && (
+            <motion.a href={githubLink} target="_blank" rel="noopener noreferrer" variants={{ hidden: { opacity: 0, x: -30 }, visible: { opacity: 1, x: 0, transition: { delay: 0.8 } } }}>
+              <button className="githubButton">Github &lt;&gt;</button>
+            </motion.a>
+          )}
+          {deployment && (
+            <motion.a href={deployment} target="_blank" rel="noopener noreferrer" variants={{ hidden: { opacity: 0, x: -30 }, visible: { opacity: 1, x: 0, transition: { delay: 1.0 } } }}>
+              <button className="deploymentButton">Deployment</button>
+            </motion.a>
+          )}
         </div>
       </motion.div>
 

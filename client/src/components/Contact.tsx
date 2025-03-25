@@ -20,6 +20,12 @@ const Contact: React.FC = () => {
         e.preventDefault();
         console.log("Form Submitted:", formData);
         // Add form submission logic here (e.g., API call)
+        
+        setFormData({
+            name: "",
+            email: "",
+            message: "",
+        });
     };
 
     return (
@@ -66,6 +72,7 @@ const Contact: React.FC = () => {
                             value={formData.message}
                             onChange={handleChange}
                             required
+                            minLength={25}
                         ></textarea>
                     </div>
 

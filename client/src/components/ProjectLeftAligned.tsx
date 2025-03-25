@@ -7,8 +7,8 @@ interface ProjectProps {
   description: string;
   techStack: string[];
   image: string;
-  githubLink: string;
-  deployment: string;
+  githubLink?: string;
+  deployment?: string;
 }
 
 const ProjectLeftAligned: React.FC<ProjectProps> = ({ name, description, techStack, image, githubLink, deployment }) => {
@@ -24,7 +24,7 @@ const ProjectLeftAligned: React.FC<ProjectProps> = ({ name, description, techSta
           controls.start("hidden");
         }
       },
-      { threshold: 0.4 } 
+      { threshold: 0.4 }
     );
 
     if (ref.current) observer.observe(ref.current);
@@ -35,8 +35,8 @@ const ProjectLeftAligned: React.FC<ProjectProps> = ({ name, description, techSta
   }, [controls]);
 
   return (
-    <motion.div 
-      ref={ref} 
+    <motion.div
+      ref={ref}
       className="projectLeftAlignedContainer"
       initial="hidden"
       animate={controls}
@@ -46,7 +46,7 @@ const ProjectLeftAligned: React.FC<ProjectProps> = ({ name, description, techSta
       }}
     >
       <motion.div className="left" variants={{ hidden: { opacity: 0, x: -50 }, visible: { opacity: 1, x: 0, transition: { delay: 0.2 } } }}>
-        <img src={image} draggable="false" alt="Project Image"/>
+        <img src={image} draggable="false" alt="Project Image" />
       </motion.div>
 
       <motion.div className="right" variants={{ hidden: { opacity: 0, x: -50 }, visible: { opacity: 1, x: 0, transition: { delay: 0.4 } } }}>
@@ -60,12 +60,16 @@ const ProjectLeftAligned: React.FC<ProjectProps> = ({ name, description, techSta
           ))}
         </div>
         <div className="projectActionButtons">
-          <motion.a href={githubLink} target="_blank" rel="noopener noreferrer" variants={{ hidden: { opacity: 0, x: -30 }, visible: { opacity: 1, x: 0, transition: { delay: 0.8 } } }}>
-            <button className="githubButton">Github &lt;&gt;</button>
-          </motion.a>
-          <motion.a href={deployment} target="_blank" rel="noopener noreferrer" variants={{ hidden: { opacity: 0, x: -30 }, visible: { opacity: 1, x: 0, transition: { delay: 1.0 } } }}>
-            <button className="deploymentButton">Deployment</button>
-          </motion.a>
+          {githubLink && (
+            <motion.a href={githubLink} target="_blank" rel="noopener noreferrer" variants={{ hidden: { opacity: 0, x: -30 }, visible: { opacity: 1, x: 0, transition: { delay: 0.8 } } }}>
+              <button className="githubButton">Github &lt;&gt;</button>
+            </motion.a>
+          )}
+          {deployment && (
+            <motion.a href={deployment} target="_blank" rel="noopener noreferrer" variants={{ hidden: { opacity: 0, x: -30 }, visible: { opacity: 1, x: 0, transition: { delay: 1.0 } } }}>
+              <button className="deploymentButton">Deployment</button>
+            </motion.a>
+          )}
         </div>
       </motion.div>
     </motion.div>
