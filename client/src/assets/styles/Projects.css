@@ -1,0 +1,11 @@
+.projectHeading{
+    font-family: "8BitArcade" !important;
+    font-size: 6rem !important;
+    color: #FFD600;
+    text-shadow: 2px 2px 0px #de02ba;
+    letter-spacing: 2px;
+}
+
+.projectMainContainer{
+    text-align: center;
+}

@@ -1,0 +1,66 @@
+.projectLeftAlignedContainer{
+    /* border: 2px solid white; */
+    width: 80%;
+    margin: 20px auto;
+    color: white;
+    display: flex;
+    padding: 8px;
+    text-align: left;
+}
+
+.left, .right{
+    /* border: 2px solid yellow; */
+    margin: 8px;
+}
+
+.left{
+    /* width: 30%; */
+    min-width: 500px;
+    min-height: fit-content;
+    width: 600px;
+    max-height: 600px;
+    background-color: rgba(26, 26, 26, 0.5);
+    backdrop-filter: blur(6px);
+    padding: 6px;
+    object-fit: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 4px 4px 0px 1px rgb(70, 172, 255);
+}
+
+.right{
+    /* width: 70%; */
+    /* border: 2px solid red; */
+    padding: 20px 0px;
+}
+
+.projectTitle{
+    font-size: 2rem;
+    font-family: 'inter';
+    font-weight: 600;
+}
+
+.projectDescription{
+    background-color: #5f467e67;
+    backdrop-filter: blur(4px);
+    padding: 8px 16px;
+}
+
+.projectTechStack{
+    /* border: 2px solid blue; */
+    padding: 8px 0px;
+}
+
+.projectTechStackItem{
+    background-color: #FFD600;
+    padding: 4px 8px;
+    border-radius: 2px;
+    margin-right: 4px;
+    color: black;
+    font-weight: 600;
+}
+
+.projectActionButtons a button{
+    cursor: pointer;
+}

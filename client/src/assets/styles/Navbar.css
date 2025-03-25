@@ -1,0 +1,96 @@
+/* Navbar container */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    backdrop-filter: blur(20px);
+}
+
+/* Profile Image Styling */
+.navbarLeft img {
+    width: 50px;
+    border-radius: 50%;
+    outline: 2px solid white;
+    outline-offset: 2px;
+    transition: 0.3s ease-in-out;
+}
+
+.navbarLeft img:hover {
+    outline: none;
+    transform: scale(1.08);
+    box-shadow: 0px 0px 8px 4px white;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    font-family: 'Quantify';
+    letter-spacing: 2px;
+}
+
+.nav-links li {
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+.nav-links li:hover {
+    color: #FFD600;
+}
+
+/* Hamburger Icon (Mobile) */
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white; /* Ensures visibility */
+    position: absolute;
+    right: 20px; /* Positions it to the right */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        display: none; /* Hide initially */
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 20px;
+        transition: transform 0.3s ease-in-out;
+        z-index: 999;
+    }
+
+    .nav-links.open {
+        display: flex; /* Show when menuOpen is true */
+    }
+
+    .menu-icon {
+        display: block;
+    }
+}
+
+.scroll-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background-color: #FFD600; /* Yellow progress bar */
+    transition: width 0.2s ease-in-out;
+}

@@ -1,0 +1,39 @@
+.projectRightAlignedContainer{
+    /* border: 2px solid white; */
+    width: 80%;
+    margin: 20px auto;
+    color: white;
+    display: flex;
+    padding: 8px;
+    text-align: right;
+    justify-content: right;
+}
+
+.right-rightAligned{
+    padding: 20px 0px;
+    text-align: right;
+}
+
+.projectTechStackItem-rightAligned{
+    margin-left: 4px;
+    background-color: #FFD600;
+    padding: 4px 8px;
+    border-radius: 2px;
+    color: black;
+    font-weight: 600;
+}
+
+.left-rightAligned{
+    min-width: 500px;
+    min-height: fit-content;
+    width: 600px;
+    max-width: 600px;
+    background-color: rgba(26, 26, 26, 0.5);
+    backdrop-filter: blur(6px);
+    padding: 6px;
+    object-fit: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 4px 4px 0px 1px rgb(70, 172, 255);
+}

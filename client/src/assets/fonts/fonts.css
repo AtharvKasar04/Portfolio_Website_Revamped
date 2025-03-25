@@ -1,0 +1,35 @@
+@font-face {
+    font-family: '8BitArcade';
+    src: url(./8-bit-arcade/8bit.ttf) format('truetype'),
+            url(./8-bit-arcade/8bit.woff) format('woff'),
+            url(./8-bit-arcade/8bit.woff2) format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'quantify';
+    src: url(./quantify/Quantify.ttf) format('truetype'),
+            url(./quantify/Quantify.woff) format('woff'),
+            url(./quantify/Quantify.woff2) format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'robotoBold';
+    src: url(./roboto/Roboto-Bold.ttf) format('truetype'),
+            url(./roboto/Roboto-Bold.woff) format('woff'),
+            url(./roboto/Roboto-Bold.woff2) format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'robotoRegular';
+    src: url(./roboto/Roboto-Regular.ttf) format('truetype'),
+            url(./roboto/Roboto-Regular.woff) format('woff'),
+            url(./roboto/Roboto-Regular.woff2) format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}

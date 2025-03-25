@@ -1,0 +1,19 @@
+.skillsHeading{
+    font-family: "8BitArcade";
+    font-size: 6rem;
+    color: #FFD600;
+    text-shadow: 2px 2px 0px #de02ba;
+    letter-spacing: 2px;
+}
+
+.skillsMainComponent{
+    text-align: center;
+}
+
+.myTechItem{
+    background-color: #A0E7A7;
+    margin: 0px 4px;
+    padding: 4px 8px;
+    border-radius: 2px;
+    font-weight: 500;
+}
