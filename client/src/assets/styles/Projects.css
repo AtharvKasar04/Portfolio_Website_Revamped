@@ -9,3 +9,41 @@
 .projectMainContainer{
     text-align: center;
 }
+
+.projectsSection {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+}
+
+@media (max-width: 1024px) {
+    .projectHeading {
+        font-size: 4.5rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .projectHeading {
+        font-size: 3.5rem !important;
+    }
+
+    .projectsSection {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .projectMainContainer {
+        padding: 3rem 1rem;
+    }
+
+    .projectHeading {
+        font-size: 2.5rem !important;
+        text-shadow: 1px 1px 0px #de02ba;
+    }
+
+    .projectsSection {
+        gap: 1.5rem;
+    }
+}

@@ -121,47 +121,134 @@
     transform: scale(1.03);
 }
 
-/* ----------- responsivenes ------------- */
+#aboutBtn{
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    margin: 0px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    box-shadow: 3px 3px 0px 0px #A0E7A7;
+    border: 2px solid #A0E7A7;
+    transition: 0.3s ease-out;
+}
 
-@media (max-width: 425px) {
-    .container{
-        width: 100%;
+#aboutBtn:hover{
+    background-color: #A0E7A7;
+    cursor: pointer;
+    color: black;
+    box-shadow: none;
+}
+
+/* Responsive Styles */
+
+@media (max-width: 1024px) {
+    .container {
         flex-direction: column;
+        text-align: center;
+        min-height: auto;
+        padding: 3rem 1rem;
     }
 
-    .textFields{
+    .textFields {
         width: 100%;
         text-align: center;
     }
 
-    .imageDiv > img{
-        width: 140px;
-        border: 2px solid #5256c8;
-        padding: 0;
-        margin: 0;
+    .textFields > h2 {
+        font-size: 4.5rem;
     }
 
-    .textFields > h2{
+    .textFields > h4 {
+        font-size: 1.8rem;
+    }
+
+    .textFields > h5 {
+        font-size: 1.3rem;
+    }
+
+    .bottom {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .imageDiv > img {
+        width: 250px;
+        border-width: 4px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 2rem 1rem;
+    }
+
+    .textFields > h2 {
+        font-size: 3.5rem;
+        margin-top: 30px;
+    }
+
+    .textFields > h4 {
+        font-size: 1.5rem;
+    }
+
+    .textFields > h5 {
+        font-size: 1.1rem;
+    }
+
+    .imageDiv > img {
+        width: 200px;
+        border-width: 3px;
+    }
+
+    #resumeBtn, #aboutBtn {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 100%;
+        flex-direction: column;
+        padding: 2rem 1rem;
+    }
+
+    .textFields {
+        width: 100%;
+        text-align: center;
+    }
+
+    .textFields > h2 {
         font-size: 2.8rem;
     }
 
-    .textFields > h4{
-        font-size: 1rem;
+    .textFields > h4 {
+        font-size: 1.2rem;
     }
 
-    .textFields > h5{
-        font-size: 0.8rem;
+    .textFields > h5 {
+        font-size: 0.9rem;
     }
 
-    #resumeBtn{
-        font-size: 0.8rem;
+    .bottom {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #resumeBtn, #aboutBtn {
+        font-size: 0.85rem;
         padding: 8px 16px;
-        margin: 10px;
+        width: 100%;
     }
 
-    #resumeBtn::before, #resumeBtn::after {
-        display: none;
-       }
+    .imageDiv > img {
+        width: 150px;
+        border-width: 2px;
+        margin: 20px 0px;
+    }
 }
 
 .fade-in {

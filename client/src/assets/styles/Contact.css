@@ -1,6 +1,8 @@
 .contactMainContainer {
     text-align: center;
-    padding: 40px 20px;
+    padding: 10px 20px;
+    /* border: 2px solid white; */
+    margin: 40px 0px;
 }
 
 .contactHeading {
@@ -97,4 +99,47 @@
 
 .form-submit-btn:active {
     scale: 0.95;
+}
+
+@media (max-width: 1024px) {
+    .contactHeading {
+        font-size: 4rem; /* Smaller heading */
+    }
+
+    .form-container {
+        width: 70%; /* Adjust width */
+        padding: 40px 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contactHeading {
+        font-size: 3rem; /* Smaller heading for tablets */
+    }
+
+    .form-container {
+        width: 85%; /* Adjust width */
+    }
+}
+
+@media (max-width: 480px) {
+    .contactHeading {
+        font-size: 2.5rem; /* Smaller heading for phones */
+    }
+
+    .form-container {
+        width: 90%;
+        padding: 32px 20px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+    }
+
+    .form-submit-btn {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
 }

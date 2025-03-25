@@ -18,6 +18,7 @@ const Home: React.FC = () => {
         "JavaScript Programming",
         "Full Stack Development",
         "Open Source",
+        "Artificial Intelligence"
       ],
       typeSpeed: 60,
       backSpeed: 50,
@@ -56,6 +57,13 @@ const Home: React.FC = () => {
     };
   }, []);
 
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+    }
+};
+
   return (
     <div ref={sectionRef} className={`main fade-in ${isVisible ? "visible" : ""}`} id="home-main">
       <div className="container" id="home">
@@ -71,6 +79,8 @@ const Home: React.FC = () => {
             <a href="/resume.pdf" download>
               <button id="resumeBtn">Resume</button>
             </a>
+
+            <button id="aboutBtn" onClick={() => scrollToSection("about")}>About Me</button>
           </div>
         </div>
 

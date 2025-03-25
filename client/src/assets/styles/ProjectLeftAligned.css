@@ -1,58 +1,64 @@
-.projectLeftAlignedContainer{
-    /* border: 2px solid white; */
-    width: 80%;
+.projectLeftAlignedContainer, .projectRightAlignedContainer {
+    width: 100%;
+    max-width: 80%;
     margin: 20px auto;
     color: white;
     display: flex;
     padding: 8px;
-    text-align: left;
+    gap: 20px;
+    align-items: center;
+    overflow: hidden; /* Prevent horizontal scrollbar */
+    box-sizing: border-box;
 }
 
-.left, .right{
-    /* border: 2px solid yellow; */
-    margin: 8px;
+.projectRightAlignedContainer {
+    flex-direction: row-reverse;
 }
 
-.left{
-    /* width: 30%; */
-    min-width: 500px;
-    min-height: fit-content;
-    width: 600px;
-    max-height: 600px;
+.left {
+    min-width: 300px;
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
     background-color: rgba(26, 26, 26, 0.5);
     backdrop-filter: blur(6px);
     padding: 6px;
-    object-fit: contain;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 4px 4px 0px 1px rgb(70, 172, 255);
+    overflow: hidden;
 }
 
-.right{
-    /* width: 70%; */
-    /* border: 2px solid red; */
+.left img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures image fits properly */
+    border-radius: 6px;
+}
+
+.right {
+    flex: 1;
     padding: 20px 0px;
 }
 
-.projectTitle{
+.projectTitle {
     font-size: 2rem;
     font-family: 'inter';
     font-weight: 600;
 }
 
-.projectDescription{
+.projectDescription {
     background-color: #5f467e67;
     backdrop-filter: blur(4px);
     padding: 8px 16px;
 }
 
-.projectTechStack{
-    /* border: 2px solid blue; */
+.projectTechStack {
     padding: 8px 0px;
 }
 
-.projectTechStackItem{
+.projectTechStackItem {
     background-color: #FFD600;
     padding: 4px 8px;
     border-radius: 2px;
@@ -61,6 +67,106 @@
     font-weight: 600;
 }
 
-.projectActionButtons a button{
+.projectActionButtons a button {
     cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .projectLeftAlignedContainer, .projectRightAlignedContainer {
+        flex-direction: column;
+        width: 90%;
+        text-align: center;
+    }
+
+    .left {
+        width: 100%;
+        min-width: unset;
+        max-width: 500px;
+        height: 250px;
+    }
+
+    .right {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .projectTitle {
+        font-size: 1.8rem;
+    }
+
+    .projectDescription {
+        font-size: 1rem;
+        padding: 6px 12px;
+    }
+
+    .projectTechStackItem {
+        padding: 5px 10px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .projectLeftAlignedContainer, .projectRightAlignedContainer {
+        width: 95%;
+    }
+
+    .left {
+        max-width: 100%;
+        height: auto; /* Adjust height dynamically */
+    }
+
+    .right {
+        width: 95%;
+    }
+
+    .projectTitle {
+        font-size: 1.6rem;
+    }
+
+    .projectDescription {
+        font-size: 0.95rem;
+    }
+
+    .projectTechStack {
+        justify-content: center;
+    }
+
+    .projectTechStackItem {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .projectLeftAlignedContainer, .projectRightAlignedContainer {
+        padding: 4px;
+    }
+
+    .left {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .right {
+        width: 100%;
+        padding: 16px;
+    }
+
+    .projectTitle {
+        font-size: 1.4rem;
+    }
+
+    .projectDescription {
+        font-size: 0.9rem;
+    }
+
+    .projectTechStackItem {
+        font-size: 0.8rem;
+        padding: 4px 8px;
+    }
+
+    .projectActionButtons a button {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+    }
 }

@@ -40,9 +40,10 @@ const Navbar: React.FC = () => {
 
                 <ul className={menuOpen ? "nav-links open" : "nav-links"}>
                     <li onClick={() => scrollToSection("home")}>Home</li>
-                    <li onClick={() => scrollToSection("profile")}>Profile</li>
+                    <li onClick={() => scrollToSection("profile")}>Projects</li>
                     <li onClick={() => scrollToSection("work")}>Work</li>
                     <li onClick={() => scrollToSection("skills")}>Skills</li>
+                    <li onClick={() => scrollToSection("about")}>About</li>
                     <li onClick={() => scrollToSection("contact")}>Contact</li>
                 </ul>
 

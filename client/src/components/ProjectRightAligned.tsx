@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 import "../assets/styles/ProjectLeftAligned.css";
-import "../assets/styles/ProjectRightAligned.css";
 
 interface ProjectProps {
   name: string;
@@ -47,7 +46,7 @@ const ProjectRightAligned: React.FC<ProjectProps> = ({ name, description, techSt
       }}
     >
       <motion.div
-        className="right-"
+        className="right"
         variants={{ hidden: { opacity: 0, x: 50 }, visible: { opacity: 1, x: 0, transition: { delay: 0.2 } } }}
       >
         <h2 className="projectTitle">{name}</h2>
@@ -58,7 +57,7 @@ const ProjectRightAligned: React.FC<ProjectProps> = ({ name, description, techSt
               key={index}
               className="projectTechStackItem"
               variants={{
-                hidden: { opacity: 0, x: 30 },
+                hidden: { opacity: 0, x: 50 },
                 visible: { opacity: 1, x: 0, transition: { delay: 0.4 + index * 0.1 } }
               }}
             >
@@ -67,13 +66,13 @@ const ProjectRightAligned: React.FC<ProjectProps> = ({ name, description, techSt
           ))}
         </div>
         <div className="projectActionButtons">
-        {githubLink && (
-            <motion.a href={githubLink} target="_blank" rel="noopener noreferrer" variants={{ hidden: { opacity: 0, x: -30 }, visible: { opacity: 1, x: 0, transition: { delay: 0.8 } } }}>
+          {githubLink && (
+            <motion.a href={githubLink} target="_blank" rel="noopener noreferrer" variants={{ hidden: { opacity: 0, x: 50 }, visible: { opacity: 1, x: 0, transition: { delay: 0.8 } } }}>
               <button className="githubButton">Github &lt;&gt;</button>
             </motion.a>
           )}
           {deployment && (
-            <motion.a href={deployment} target="_blank" rel="noopener noreferrer" variants={{ hidden: { opacity: 0, x: -30 }, visible: { opacity: 1, x: 0, transition: { delay: 1.0 } } }}>
+            <motion.a href={deployment} target="_blank" rel="noopener noreferrer" variants={{ hidden: { opacity: 0, x: 50 }, visible: { opacity: 1, x: 0, transition: { delay: 1.0 } } }}>
               <button className="deploymentButton">Deployment</button>
             </motion.a>
           )}
@@ -81,7 +80,7 @@ const ProjectRightAligned: React.FC<ProjectProps> = ({ name, description, techSt
       </motion.div>
 
       <motion.div
-        className="left-rightAligned"
+        className="left"
         variants={{ hidden: { opacity: 0, x: 50 }, visible: { opacity: 1, x: 0, transition: { delay: 0.2 } } }}
       >
         <img src={image} draggable="false" alt="Project Image" />

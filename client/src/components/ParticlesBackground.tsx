@@ -15,7 +15,7 @@ const ParticlesBackground: React.FC = () => {
     const STAR_SIZE = 3; // Base size of particles
     const STAR_MIN_SCALE = 0.2; // Minimum scaling factor for stars
     const OVERFLOW_THRESHOLD = 5; // Buffer area outside the screen
-    const STAR_COUNT = (window.innerWidth + window.innerHeight) / 80; // Number of stars (scales with screen size)
+    const STAR_COUNT = (window.innerWidth + window.innerHeight) / 50; // Number of stars (scales with screen size)
 
     // Canvas settings
     let scale = window.devicePixelRatio || 1, // Adjust for screen DPI scaling
@@ -180,7 +180,7 @@ const ParticlesBackground: React.FC = () => {
         width: "100%",
         height: "100%",
         zIndex: 0, // Keep background behind other content
-        backgroundColor: "#210F29", // Black background for contrast
+        backgroundColor: "#1D1616", // Black background for contrast
         pointerEvents: "none",
       }}
     />

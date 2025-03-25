@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { motion, useAnimation } from "framer-motion";
 import "../assets/styles/Contact.css";
 
 const Contact: React.FC = () => {
@@ -7,6 +8,32 @@ const Contact: React.FC = () => {
         email: "",
         message: "",
     });
+
+    const controls = useAnimation();
+    const formRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    controls.start("visible");
+                } else {
+                    controls.start("hidden");
+                }
+            },
+            { threshold: 0.3 }
+        );
+
+        if (formRef.current) {
+            observer.observe(formRef.current);
+        }
+
+        return () => {
+            if (formRef.current) {
+                observer.unobserve(formRef.current);
+            }
+        };
+    }, [controls]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -19,8 +46,7 @@ const Contact: React.FC = () => {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log("Form Submitted:", formData);
-        // Add form submission logic here (e.g., API call)
-        
+
         setFormData({
             name: "",
             email: "",
@@ -29,14 +55,39 @@ const Contact: React.FC = () => {
     };
 
     return (
-        <div className="contactMainContainer" id="contact">
+        <motion.div
+            className="contactMainContainer"
+            id="contact"
+            ref={formRef}
+            initial="hidden"
+            animate={controls}
+            variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+            }}
+        >
+            <motion.h2 className="contactHeading"
+                variants={{
+                    hidden: { opacity: 0, y: -20 },
+                    visible: { opacity: 1, y: 0, transition: { delay: 0.1, duration: 0.5 } }
+                }}
+            >
+                Contact Me
+            </motion.h2>
 
-            <h2 className="contactHeading">Contact Me</h2>
-
-            <div className="form-container">
-
+            <motion.div className="form-container"
+                variants={{
+                    hidden: { opacity: 0, scale: 0.9 },
+                    visible: { opacity: 1, scale: 1, transition: { delay: 0.2, duration: 0.5 } }
+                }}
+            >
                 <form className="form" onSubmit={handleSubmit}>
-                    <div className="form-group">
+                    <motion.div className="form-group"
+                        variants={{
+                            hidden: { opacity: 0, x: -30 },
+                            visible: { opacity: 1, x: 0, transition: { delay: 0.3, duration: 0.5 } }
+                        }}
+                    >
                         <label htmlFor="name">Full Name</label>
                         <input
                             type="text"
@@ -47,9 +98,14 @@ const Contact: React.FC = () => {
                             onChange={handleChange}
                             required
                         />
-                    </div>
+                    </motion.div>
 
-                    <div className="form-group">
+                    <motion.div className="form-group"
+                        variants={{
+                            hidden: { opacity: 0, x: 30 },
+                            visible: { opacity: 1, x: 0, transition: { delay: 0.4, duration: 0.5 } }
+                        }}
+                    >
                         <label htmlFor="email">Email</label>
                         <input
                             type="email"
@@ -60,9 +116,14 @@ const Contact: React.FC = () => {
                             onChange={handleChange}
                             required
                         />
-                    </div>
+                    </motion.div>
 
-                    <div className="form-group">
+                    <motion.div className="form-group"
+                        variants={{
+                            hidden: { opacity: 0, y: 30 },
+                            visible: { opacity: 1, y: 0, transition: { delay: 0.5, duration: 0.5 } }
+                        }}
+                    >
                         <label htmlFor="message">Leave a Message</label>
                         <textarea
                             id="message"
@@ -74,14 +135,23 @@ const Contact: React.FC = () => {
                             required
                             minLength={25}
                         ></textarea>
-                    </div>
+                    </motion.div>
 
-                    <button className="form-submit-btn" type="submit">
+                    <motion.button
+                        className="form-submit-btn"
+                        type="submit"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        variants={{
+                            hidden: { opacity: 0, y: 20 },
+                            visible: { opacity: 1, y: 0, transition: { delay: 0.2, duration: 0.5 } }
+                        }}
+                    >
                         Send Message
-                    </button>
+                    </motion.button>
                 </form>
-            </div>
-        </div>
+            </motion.div>
+        </motion.div>
     );
 };
 

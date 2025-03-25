@@ -1,19 +1,81 @@
-.skillsHeading{
+/* Skills Section Container */
+.skillsMainComponent {
+    text-align: center;
+    margin: 40px 0px;
+    padding: 20px;
+}
+
+/* Heading Styling */
+.skillsHeading {
     font-family: "8BitArcade";
     font-size: 6rem;
     color: #FFD600;
     text-shadow: 2px 2px 0px #de02ba;
     letter-spacing: 2px;
+    margin-bottom: 2rem;
 }
 
-.skillsMainComponent{
-    text-align: center;
+/* Skills Wrapper */
+.myTechnology {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 20px;
 }
 
-.myTechItem{
+/* Skill Item Styling */
+.myTechItem {
     background-color: #A0E7A7;
-    margin: 0px 4px;
-    padding: 4px 8px;
-    border-radius: 2px;
-    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: 0.2s ease-out;
+    user-select: none;
+    display: inline-block;
+}
+
+/* Hover Effect */
+.myTechItem:hover {
+    background-color: black;
+    color: #FFD600;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .skillsHeading {
+        font-size: 4.5rem;
+    }
+
+    .myTechItem {
+        font-size: 1rem;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .skillsHeading {
+        font-size: 3.5rem;
+    }
+
+    .myTechItem {
+        font-size: 0.9rem;
+        padding: 5px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .skillsHeading {
+        font-size: 2.5rem;
+        text-shadow: 1px 1px 0px #de02ba;
+    }
+
+    .myTechItem {
+        font-size: 0.85rem;
+        padding: 4px 8px;
+    }
 }

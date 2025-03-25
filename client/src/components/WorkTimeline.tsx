@@ -82,7 +82,7 @@ const WorkTimeline: React.FC = () => {
               </TimelineOppositeContent>
 
               <TimelineSeparator>
-                <TimelineDot sx={{ backgroundColor: "#FFD600", width: 20, height: 20 }} />
+                <TimelineDot sx={{ backgroundColor: "#FFD600", width: 18, height: 18 }} />
                 {index !== workExperience.length - 1 && <TimelineConnector />}
               </TimelineSeparator>
 

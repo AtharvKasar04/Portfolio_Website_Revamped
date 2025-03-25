@@ -1,15 +1,80 @@
-.timelineDescription{
-    background-color: #5f467e62;
-    padding: 8px 16px;
+/* Work Experience Timeline Container */
+.timelineBox {
+    padding: 40px;
+    max-width: 1000px; /* Adjusted width */
+    margin: auto;
+    color: white;
+}
+
+/* Heading Styling */
+.workExperienceHeading {
+    font-family: "8BitArcade" !important;
+    font-size: 4rem !important; /* Reduced for better fitting */
+    color: #FFD600;
+    text-shadow: 2px 2px 0px #de02ba;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Timeline Description */
+.timelineDescription {
+    background-color: rgba(95, 70, 126, 0.38);
+    padding: 6px 12px;
     border-radius: 4px;
     backdrop-filter: blur(4px);
     font-weight: 500;
 }
 
-.workExperienceHeading{
-    font-family: "8BitArcade" !important;
-    font-size: 6rem !important;
+/* Timeline Duration Styling */
+.timelineDuration {
+    font-size: 1rem;
+    font-weight: bold;
     color: #FFD600;
-    text-shadow: 2px 2px 0px #de02ba;
-    letter-spacing: 2px;
+}
+
+.MuiTimelineSeparator-root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .workExperienceHeading {
+        font-size: 3.5rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .timelineBox {
+        padding: 30px;
+        max-width: 100%;
+    }
+
+    .workExperienceHeading {
+        font-size: 3rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .timelineBox {
+        padding: 20px;
+        width: 90%;
+    }
+
+    .workExperienceHeading {
+        font-size: 2.5rem !important;
+        text-shadow: 1px 1px 0px #de02ba;
+    }
+
+    .timelineDescription {
+        font-size: 0.8rem !important;
+        padding: 5px 10px;
+    }
+
+    .timelineDuration {
+        font-size: 0.8rem !important;
+    }
 }
