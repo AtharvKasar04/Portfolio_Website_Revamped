@@ -12,7 +12,7 @@ import Footer from "./components/Footer";
 
 const App: React.FC = () => {
   return (
-    <div style={{ position: "relative", minHeight: "100vh" }}>
+    <div style={{ position: "relative", minHeight: "100vh", width: "100%"}}>
       <ParticlesBackground />
       <div style={{ position: "relative", zIndex: 1, height: "fit-content" }}>
         <Navbar />
