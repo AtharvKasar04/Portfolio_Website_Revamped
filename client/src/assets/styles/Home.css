@@ -176,6 +176,11 @@
     .imageDiv > img {
         width: 250px;
         border-width: 4px;
+        margin: 20px 0px;
+    }
+
+    #home-main{
+        height: 800px;
     }
 }
 
@@ -201,11 +206,16 @@
     .imageDiv > img {
         width: 200px;
         border-width: 3px;
+        margin: 20px 0px;
     }
 
     #resumeBtn, #aboutBtn {
         font-size: 1rem;
         padding: 8px 16px;
+    }
+
+    #home-main{
+        height: 700px;
     }
 }
 

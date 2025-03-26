@@ -147,6 +147,10 @@
     .projectTechStackItem {
         font-size: 0.85rem;
     }
+
+    .deploymentButton{
+        width: 100%;
+    }
 }
 
 @media (max-width: 480px) {
@@ -181,4 +185,16 @@
         font-size: 0.9rem;
         padding: 6px 10px;
     }
+}
+
+.deploymentButton{
+    background-color: #A0E7A7;
+    color: black;
+    border-radius: 4px;
+    font-weight: 600;
+    padding: 6px 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
 }
