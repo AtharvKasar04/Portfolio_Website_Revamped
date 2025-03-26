@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 import "../assets/styles/ProjectLeftAligned.css";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 interface ProjectProps {
   name: string;
@@ -65,7 +66,7 @@ const ProjectRightAligned: React.FC<ProjectProps> = ({ name, description, techSt
             </motion.span>
           ))}
         </div>
-        <div className="projectActionButtons">
+        <div className="projectActionButtons projectActionButtonsRight">
           {githubLink && (
             <motion.a href={githubLink} target="_blank" rel="noopener noreferrer" variants={{ hidden: { opacity: 0, x: 50 }, visible: { opacity: 1, x: 0, transition: { delay: 0.8 } } }}>
               <button className="githubButton">Github &lt;&gt;</button>
@@ -73,7 +74,7 @@ const ProjectRightAligned: React.FC<ProjectProps> = ({ name, description, techSt
           )}
           {deployment && (
             <motion.a href={deployment} target="_blank" rel="noopener noreferrer" variants={{ hidden: { opacity: 0, x: 50 }, visible: { opacity: 1, x: 0, transition: { delay: 1.0 } } }}>
-              <button className="deploymentButton">Deployment</button>
+              <button className="deploymentButton">Deployment <FaExternalLinkAlt size={14}/></button>
             </motion.a>
           )}
         </div>

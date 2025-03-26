@@ -197,4 +197,36 @@
     justify-content: center;
     align-items: center;
     gap: 8px;
+    transition: 0.3s ease-out;
+    border: 2px solid #A0E7A7;
+}
+
+.githubButton{
+    background-color: #A0E7A7;
+    color: black;
+    border-radius: 4px;
+    font-weight: 600;
+    padding: 6px 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s ease-out;
+    border: 2px solid #A0E7A7;    
+}
+
+.githubButton:hover, .deploymentButton:hover{
+    background-color: #68a56e;
+    border: 2px solid #68a56e;
+    background-color: transparent;
+    color: white;
+}
+
+.projectActionButtons{
+    display: flex;
+    gap: 8px;
+}
+
+.projectActionButtonsRight{
+    justify-content: right;
 }
