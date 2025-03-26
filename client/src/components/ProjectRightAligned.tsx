@@ -46,12 +46,12 @@ const ProjectRightAligned: React.FC<ProjectProps> = ({ name, description, techSt
       }}
     >
       <motion.div
-        className="right"
+        className="right leftOfRightAligned"
         variants={{ hidden: { opacity: 0, x: 50 }, visible: { opacity: 1, x: 0, transition: { delay: 0.2 } } }}
       >
         <h2 className="projectTitle">{name}</h2>
         <p className="projectDescription">{description}</p>
-        <div className="projectTechStack">
+        <div className="projectTechStack rightAlignedProjectTechStack">
           {techStack.map((technology, index) => (
             <motion.span
               key={index}

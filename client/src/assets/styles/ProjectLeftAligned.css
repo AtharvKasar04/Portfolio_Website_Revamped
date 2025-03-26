@@ -7,12 +7,8 @@
     padding: 8px;
     gap: 20px;
     align-items: center;
-    overflow: hidden; /* Prevent horizontal scrollbar */
+    overflow: hidden; 
     box-sizing: border-box;
-}
-
-.projectRightAlignedContainer {
-    flex-direction: row-reverse;
 }
 
 .left {
@@ -40,6 +36,8 @@
 .right {
     flex: 1;
     padding: 20px 0px;
+    /* border: 2px solid red; */
+    text-align: left;
 }
 
 .projectTitle {
@@ -52,10 +50,19 @@
     background-color: #5f467e67;
     backdrop-filter: blur(4px);
     padding: 8px 16px;
+    /* width: fit-content; */
+    /* border: 2px solid red; */
 }
 
 .projectTechStack {
     padding: 8px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.rightAlignedProjectTechStack{
+    justify-content: right;
 }
 
 .projectTechStackItem {
@@ -69,6 +76,11 @@
 
 .projectActionButtons a button {
     cursor: pointer;
+}
+
+.leftOfRightAligned{
+    /* border: 2px solid red; */
+    text-align: right;
 }
 
 /* Responsive Design */

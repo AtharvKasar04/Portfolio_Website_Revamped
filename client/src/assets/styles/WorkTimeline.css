@@ -1,15 +1,21 @@
 /* Work Experience Timeline Container */
 .timelineBox {
-    padding: 40px;
+    padding: 30px;
     max-width: 1000px; /* Adjusted width */
     margin: auto;
     color: white;
+    /* border: 2px solid white; */
+}
+
+.timelineComponent{
+    /* border: 2px solid red; */
+    padding: 0;
 }
 
 /* Heading Styling */
 .workExperienceHeading {
     font-family: "8BitArcade" !important;
-    font-size: 4rem !important; /* Reduced for better fitting */
+    font-size: 5rem !important;
     color: #FFD600;
     text-shadow: 2px 2px 0px #de02ba;
     letter-spacing: 2px;
@@ -30,7 +36,6 @@
 .timelineDuration {
     font-size: 1rem;
     font-weight: bold;
-    color: #FFD600;
 }
 
 .MuiTimelineSeparator-root {
@@ -38,7 +43,6 @@
     flex-direction: column;
     align-items: center;
 }
-
 
 /* Responsive Design */
 @media (max-width: 1024px) {
@@ -61,7 +65,7 @@
 @media (max-width: 480px) {
     .timelineBox {
         padding: 20px;
-        width: 90%;
+        width: 100%;
     }
 
     .workExperienceHeading {
@@ -76,5 +80,10 @@
 
     .timelineDuration {
         font-size: 0.8rem !important;
+    }
+
+    .jobCompany{
+        font-size: 0.8rem !important;
+        width: 100%;
     }
 }

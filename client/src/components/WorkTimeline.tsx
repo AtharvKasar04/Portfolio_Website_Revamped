@@ -20,22 +20,22 @@ interface WorkExperience {
 
 const workExperience: WorkExperience[] = [
   {
-    duration: "Jan 2024 - Present",
+    duration: "Jan 2024 - March 2025",
     title: "Software Developer",
-    company: "Tech Innovations Ltd.",
-    description: "Working on full-stack development using MERN stack and microservices.",
+    company: "HummingByte Technologies Pvt. Ltd.",
+    description: "Worked on full-stack development. ReactJS, NodeJS, ExpresJS, MySQL",
   },
   {
-    duration: "Aug 2022 - Dec 2023",
+    duration: "Sep 2024 - Present",
     title: "Freelance Developer",
     company: "Self-Employed",
-    description: "Built custom web applications for clients, improving business automation.",
+    description: "Built custom web applications for clients, improving business functions and digital presence.",
   },
   {
-    duration: "May 2021 - July 2022",
+    duration: "Jan 2025 - Present",
     title: "Intern - Web Developer",
-    company: "Startup X",
-    description: "Assisted in building React-based web applications with Firebase backend.",
+    company: "PaanPhool",
+    description: "Assisted in building React-based web applications from scratch with custom features and Email list functionality with NodeJS.",
   },
 ];
 
@@ -65,7 +65,7 @@ const WorkTimeline: React.FC = () => {
         </Typography>
       </motion.div>
 
-      <Timeline>
+      <Timeline className="timelineComponent">
         {workExperience.map((job, index) => (
           <motion.div
             key={index}
@@ -73,10 +73,10 @@ const WorkTimeline: React.FC = () => {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: index * 0.2 }}
           >
-            <TimelineItem>
+            <TimelineItem className="timelineItem">
               {/* Left Side - Duration */}
               <TimelineOppositeContent>
-                <Typography variant="h6" fontWeight="bold">
+                <Typography variant="h6" fontWeight="bold" className="timelineDuration">
                   {job.duration}
                 </Typography>
               </TimelineOppositeContent>
@@ -88,10 +88,10 @@ const WorkTimeline: React.FC = () => {
 
               {/* Right Side - Job Details */}
               <TimelineContent>
-                <Typography variant="h5" fontWeight="bold">
+                <Typography variant="h6" fontWeight="bold" className="experienceTitle">
                   {job.title}
                 </Typography>
-                <Typography variant="h6" sx={{ fontStyle: "italic", color: "#ccc" }}>
+                <Typography variant="h6" sx={{ fontStyle: "italic", color: "#ccc" }} className="jobCompany">
                   {job.company}
                 </Typography>
                 <Typography variant="h6" sx={{ mt: 1 }} className="timelineDescription">
