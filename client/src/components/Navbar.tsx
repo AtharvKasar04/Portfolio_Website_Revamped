@@ -45,6 +45,10 @@ const Navbar: React.FC = () => {
                     <li onClick={() => scrollToSection("skills")}>Skills</li>
                     <li onClick={() => scrollToSection("about")}>About</li>
                     <li onClick={() => scrollToSection("contact")}>Contact</li>
+
+                    <a href="https://github.com/AtharvKasar04" target="_blank">
+                        <button id="viewGithubButton">View Github</button>
+                    </a>
                 </ul>
 
                 <div className="menu-icon" onClick={toggleMenu}>

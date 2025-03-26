@@ -11,6 +11,7 @@
     left: 0;
     z-index: 1000;
     backdrop-filter: blur(20px);
+    /* border: 2px solid red; */
 }
 
 /* Profile Image Styling */
@@ -35,6 +36,7 @@
     gap: 30px;
     font-family: 'Quantify';
     letter-spacing: 2px;
+    align-items: center;
 }
 
 .nav-links li {
@@ -98,4 +100,22 @@
     height: 2px;
     background-color: #FFD600; /* Yellow progress bar */
     transition: width 0.2s ease-in-out;
+}
+
+#viewGithubButton{
+    font-family: 'Inter';
+    border: 2px solid #A0E7A7;
+    background-color: #A0E7A7;
+    color: black;
+    font-weight: 800;
+    font-size: 1.2rem;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: 0.3s ease-out;
+}
+
+#viewGithubButton:hover{
+    background-color: transparent;
+    box-shadow: 3px 3px 0px 1px #A0E7A7;
+    color: white;
 }
