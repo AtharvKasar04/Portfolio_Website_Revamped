@@ -4,7 +4,7 @@ import "../assets/styles/Projects.css"
 
 import MaharashtraFarmsImg from "../assets/images/MaharashtraFarms.png";
 import PaanPhoolImg from "../assets/images/PaanPhool.png";
-import Collectory from "../assets/images/Collectory.png";
+import DiscordBot from "../assets/images/DiscordBot.png";
 
 interface Project {
     name: string;
@@ -36,7 +36,7 @@ const projects: Project[] = [
         name: "Minot - A Discord Bot feature Games, Music integration",
         description: "A Discord Bot",
         techStack: ['DiscordJS', 'NodeJS'],
-        image: Collectory,
+        image: DiscordBot,
         githubLink: "",
         deployment: ""
     },
