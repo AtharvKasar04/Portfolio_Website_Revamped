@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 import "../assets/styles/Contact.css";
+import axios from "axios";
 
 const Contact: React.FC = () => {
     const [formData, setFormData] = useState({
@@ -43,15 +44,26 @@ const Contact: React.FC = () => {
         }));
     };
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log("Form Submitted:", formData);
 
-        setFormData({
-            name: "",
-            email: "",
-            message: "",
-        });
+        try {
+            const response = await axios.post("http://localhost:5001/api/contact", formData);
+            if (response.status === 200) {
+                setFormData({
+                    name: "",
+                    email: "",
+                    message: "",
+                });
+
+                alert("Email sent successfully!");
+            }
+        } catch (error) {
+            console.error("Error sending email:", error);
+            alert("Failed to send email. Please try again.");
+        }
+
+        console.log("Form Submitted:", formData);
     };
 
     return (
