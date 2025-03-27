@@ -48,7 +48,7 @@ const Contact: React.FC = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post("http://localhost:5001/api/contact", formData);
+            const response = await axios.post("https://portfolio-website-revamped.onrender.com/api/contact", formData);
             if (response.status === 200) {
                 setFormData({
                     name: "",
