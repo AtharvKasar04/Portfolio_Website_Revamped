@@ -21,7 +21,7 @@ interface WorkExperience {
 const workExperience: WorkExperience[] = [
   {
     duration: "Jan 2024 - March 2025",
-    title: "Software Developer",
+    title: "Software Developer Intern",
     company: "HummingByte Technologies Pvt. Ltd.",
     description: "Worked on full-stack development. ReactJS, NodeJS, ExpresJS, MySQL",
   },

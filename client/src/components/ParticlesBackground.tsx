@@ -13,7 +13,7 @@ const ParticlesBackground: React.FC = () => {
     const STAR_SIZE = 3;
     const STAR_MIN_SCALE = 0.2;
     const OVERFLOW_THRESHOLD = 5;
-    const STAR_COUNT = Math.floor((window.innerWidth + window.innerHeight) / 30);
+    const STAR_COUNT = Math.floor((window.innerWidth + window.innerHeight) / 70); 
 
     let scale = window.devicePixelRatio || 1;
     let width = window.innerWidth * scale;
