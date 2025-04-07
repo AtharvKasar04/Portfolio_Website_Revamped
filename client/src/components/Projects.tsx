@@ -6,6 +6,7 @@ import MaharashtraFarmsImg from "../assets/images/MaharashtraFarms.png";
 import PaanPhoolImg from "../assets/images/PaanPhool.png";
 import DiscordBot from "../assets/images/DiscordBot.png";
 import LocalStorageWrapper from "../assets/images/localStorageWrapper.png";
+import SpotSeeker from "../assets/images/SpotSeeker.jpg";
 
 interface Project {
     name: string;
@@ -17,6 +18,14 @@ interface Project {
 }
 
 const projects: Project[] = [
+    {
+        name: "SpotSeeker - Realtime Parking Spot detection using Arduino UNO and ESP8266",
+        description: "A Real-Time parking spot detection system with displaying the number of spots available on a React based web-app. It uses IR sensors to detect the parking spot and relays the data to Arduino UNO and then ESP8266 also making the use of ThingSpeak IoT for the API usage for React dashboard.",
+        techStack: ['ReactJS', 'Arduino', 'ESP8266 (NodeMCU)', 'ThingSpeak IoT', 'IoT Sensors'],
+        image: SpotSeeker,
+        githubLink: "",
+        deployment: ""
+    },
     {
         name: "Freelance Work - Subscription Based Fruits & Veggies ordering website",
         description: "A website designed and developed for ordering fruits and vegetables on a subscription basis with payment integrations and admin panel for full control.",
