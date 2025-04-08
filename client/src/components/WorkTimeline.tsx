@@ -29,11 +29,11 @@ const workExperience: WorkExperience[] = [
     duration: "Sep 2024 - Present",
     title: "Freelance Developer",
     company: "Self-Employed",
-    description: "Built custom web applications for clients, improving business functions and digital presence.",
+    description: "Built custom web applications for clients, improving business functions and digital presence. With performance optimization, secure Payment integration.",
   },
   {
     duration: "Jan 2025 - Present",
-    title: "Intern - Web Developer",
+    title: "Freelance Developer",
     company: "PaanPhool",
     description: "Assisted in building React-based web applications from scratch with custom features and Email list functionality with NodeJS.",
   },

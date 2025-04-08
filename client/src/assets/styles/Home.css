@@ -229,10 +229,12 @@
     .textFields {
         width: 100%;
         text-align: center;
+        margin-top: 30px;
     }
 
     .textFields > h2 {
         font-size: 2.8rem;
+        margin: 8px 0px;
     }
 
     .textFields > h4 {
