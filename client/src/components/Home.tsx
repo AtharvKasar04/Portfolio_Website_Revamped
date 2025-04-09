@@ -3,6 +3,7 @@ import "../assets/fonts/fonts.css";
 import { useEffect, useRef, useState } from "react";
 import Typed from "typed.js";
 import myImg from "../assets/images/IMG_7547.jpg";
+import { FaLinkedin } from "react-icons/fa";
 
 const Home: React.FC = () => {
   const typedElement = useRef<HTMLSpanElement | null>(null);
@@ -81,6 +82,8 @@ const Home: React.FC = () => {
             </a>
 
             <button id="aboutBtn" onClick={() => scrollToSection("about")}>About Me</button>
+
+            <a href="https://www.linkedin.com/in/atharv-kasar-03aa34258/" id="linkedinLogo" target="_blank"><FaLinkedin/></a>
           </div>
         </div>
 

@@ -50,6 +50,20 @@
 
 .bottom{
     margin-top: 20px;
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
+}
+
+#linkedinLogo{
+    color: white;
+    font-size: 48px;
+    transition: 0.3s ease-out;
+}
+
+#linkedinLogo:hover{
+    transform: scale(1.05);
+    color: #0a66c2;
 }
 
 #resumeBtn {
