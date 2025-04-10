@@ -59,11 +59,24 @@
     color: white;
     font-size: 48px;
     transition: 0.3s ease-out;
+    margin: 0px 4px;
 }
 
 #linkedinLogo:hover{
     transform: scale(1.05);
     color: #0a66c2;
+}
+
+#xLogo{
+    color: white;
+    font-size: 48px;
+    transition: 0.3s ease-out;
+    margin: 0px 4px;
+}
+
+#xLogo:hover{
+    background-color: black;
+    transform: scale(1.05);
 }
 
 #resumeBtn {
