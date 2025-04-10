@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Typed from "typed.js";
 import myImg from "../assets/images/IMG_7547.jpg";
 import { FaLinkedin } from "react-icons/fa";
+import { PiXLogoBold } from "react-icons/pi";
 
 const Home: React.FC = () => {
   const typedElement = useRef<HTMLSpanElement | null>(null);
@@ -84,6 +85,8 @@ const Home: React.FC = () => {
             <button id="aboutBtn" onClick={() => scrollToSection("about")}>About Me</button>
 
             <a href="https://www.linkedin.com/in/atharv-kasar-03aa34258/" id="linkedinLogo" target="_blank"><FaLinkedin/></a>
+
+            <a href="https://x.com/ATHARVKASAR6" target="_blank" id="xLogo"><PiXLogoBold/></a>
           </div>
         </div>
 
