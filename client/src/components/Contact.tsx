@@ -103,7 +103,7 @@ const Contact: React.FC = () => {
                         <label htmlFor="name">Full Name</label>
                         <input
                             type="text"
-                            id="name"
+                            id="contact-name"
                             name="name"
                             placeholder="Your Name"
                             value={formData.name}

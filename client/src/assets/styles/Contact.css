@@ -101,6 +101,10 @@
     scale: 0.95;
 }
 
+#contact-name{
+    color: white !important;
+}
+
 @media (max-width: 1024px) {
     .contactHeading {
         font-size: 4rem; /* Smaller heading */
