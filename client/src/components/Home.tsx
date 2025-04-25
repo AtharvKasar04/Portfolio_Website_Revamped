@@ -20,7 +20,7 @@ const Home: React.FC = () => {
         "JavaScript Programming",
         "Full Stack Development",
         "Open Source",
-        "Artificial Intelligence"
+        "Artificial Intelligence",
       ],
       typeSpeed: 60,
       backSpeed: 50,
@@ -62,12 +62,16 @@ const Home: React.FC = () => {
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
     if (section) {
-        section.scrollIntoView({ behavior: "smooth" });
+      section.scrollIntoView({ behavior: "smooth" });
     }
-};
+  };
 
   return (
-    <div ref={sectionRef} className={`main fade-in ${isVisible ? "visible" : ""}`} id="home-main">
+    <div
+      ref={sectionRef}
+      className={`main fade-in ${isVisible ? "visible" : ""}`}
+      id="home-main"
+    >
       <div className="container" id="home">
         <div className="textFields">
           <h2>Hey,</h2>
@@ -82,11 +86,24 @@ const Home: React.FC = () => {
               <button id="resumeBtn">Resume</button>
             </a>
 
-            <button id="aboutBtn" onClick={() => scrollToSection("about")}>About Me</button>
+            <button id="aboutBtn" onClick={() => scrollToSection("about")}>
+              About Me
+            </button>
 
-            <a href="https://www.linkedin.com/in/atharv-kasar-03aa34258/" id="linkedinLogo" target="_blank"><FaLinkedin/></a>
+            <div className="iconButtons">
+              <a
+                href="https://www.linkedin.com/in/atharv-kasar-03aa34258/"
+                id="linkedinLogo"
+                target="_blank"
+              >
+                <FaLinkedin />
+              </a>
 
-            <a href="https://x.com/ATHARVKASAR6" target="_blank" id="xLogo"><PiXLogoBold/></a>
+              <a href="https://x.com/ATHARVKASAR6" target="_blank" id="xLogo">
+                <PiXLogoBold />
+              </a>
+            </div>
+            
           </div>
         </div>
 

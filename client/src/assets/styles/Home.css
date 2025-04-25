@@ -167,6 +167,12 @@
     box-shadow: none;
 }
 
+.iconButtons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Responsive Styles */
 
 @media (max-width: 1024px) {
@@ -277,7 +283,7 @@
         align-items: center;
     }
 
-    #resumeBtn, #aboutBtn {
+    #resumeBtn {
         font-size: 0.85rem;
         padding: 8px 16px;
         width: 100%;
