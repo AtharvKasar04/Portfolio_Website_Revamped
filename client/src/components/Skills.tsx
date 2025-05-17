@@ -4,6 +4,7 @@ import "../assets/styles/Skills.css";
 
 const mySkills: string[] = [
   "ReactJS",
+  "Angular",
   "NodeJS",
   "ExpressJS",
   "MongoDB",
