@@ -14,6 +14,10 @@ const mySkills: string[] = [
   "MySQL",
   "Arduino",
   "Git/Github",
+  "Vue JS",
+  "Machine Learning",
+  "FastAPI",
+  "AWS"
 ];
 
 const skillVariants = {
