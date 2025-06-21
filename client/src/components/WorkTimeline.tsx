@@ -22,7 +22,7 @@ const workExperience: WorkExperience[] = [
   {
     duration: "May 2025 - July - 2025",
     title: "Engineering Intern",
-    company: "SoftDEL (UNIDEL)",
+    company: "SoftDEL Systems Pvt. Ltd. (UNIDEL)",
     description: "Worked on EMS Dashboards and other Frontend aspects using various technologies (Angular, Vue JS), Implemented AWS Cloud Services in Deployment of projects. Built productible Web-Apps from scratch with Project Proposals."
   },
   {
