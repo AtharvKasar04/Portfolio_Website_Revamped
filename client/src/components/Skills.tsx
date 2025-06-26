@@ -17,7 +17,8 @@ const mySkills: string[] = [
   "Vue JS",
   "Machine Learning",
   "FastAPI",
-  "AWS"
+  "AWS",
+  "Jest"
 ];
 
 const skillVariants = {
