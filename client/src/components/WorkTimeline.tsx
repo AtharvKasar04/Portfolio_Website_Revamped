@@ -20,16 +20,16 @@ interface WorkExperience {
 
 const workExperience: WorkExperience[] = [
   {
+    duration: "Sep 2025 - Nov 2025",
+    title: "Software Developer Intern",
+    company: "Fuzen.io",
+    description: "Contributed to an AI-first startup by developing reusable, dashboard-based web templates and refining the frontend architecture for scalability."
+  },
+  {
     duration: "May 2025 - Aug 2025",
     title: "Engineering Intern",
     company: "SoftDEL Systems Pvt. Ltd. (UNIDEL)",
     description: "Worked on EMS Dashboards and other Frontend aspects using various technologies (Angular, Vue JS), Implemented AWS Cloud Services in Deployment of projects. Built productible Web-Apps from scratch with Project Proposals."
-  },
-  {
-    duration: "Jan 2024 - March 2025",
-    title: "Software Developer Intern",
-    company: "HummingByte Technologies Pvt. Ltd.",
-    description: "Worked on full-stack development. ReactJS, NodeJS, ExpresJS, MySQL",
   },
   {
     duration: "Sep 2024 - Present",
