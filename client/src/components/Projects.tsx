@@ -20,7 +20,7 @@ interface Project {
 
 const projects: Project[] = [
     {
-        name: "Athex - Prop Trading Analytics & Tracker",
+        name: "Athex - Prop Trading Analytics & Tracker (under development)",
         description: "A full-stack SaaS application that helps traders track, manage, and analyze multiple prop firm accounts in one unified dashboard. Features include phase lifecycle tracking, risk monitoring, payout management, and funding analytics.",
         techStack: ['React', 'TypeScript', 'Node.js', 'Express.js + TypeScript', 'MongoDB'],
         image: athexDashboard,
