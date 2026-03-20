@@ -7,6 +7,7 @@ import PaanPhoolImg from "../assets/images/PaanPhool.png";
 import DiscordBot from "../assets/images/DiscordBot.png";
 import LocalStorageWrapper from "../assets/images/localStorageWrapper.png";
 import SpotSeeker from "../assets/images/SpotSeeker.jpg";
+import athexDashboard from "../assets/images/athex-dashboard.png"
 
 interface Project {
     name: string;
@@ -18,6 +19,13 @@ interface Project {
 }
 
 const projects: Project[] = [
+    {
+        name: "Athex - Prop Trading Analytics & Tracker",
+        description: "A full-stack SaaS application that helps traders track, manage, and analyze multiple prop firm accounts in one unified dashboard. Features include phase lifecycle tracking, risk monitoring, payout management, and funding analytics.",
+        image: athexDashboard,
+        githubLink: "",
+        deployment: ""
+    },
     {
         name: "SpotSeeker - Realtime Parking Spot detection using Arduino UNO and ESP8266",
         description: "A Real-Time parking spot detection system with displaying the number of spots available on a React based web-app. It uses IR sensors to detect the parking spot and relays the data to Arduino UNO and then ESP8266 also making the use of ThingSpeak IoT for the API usage for React dashboard.",
