@@ -7,7 +7,7 @@ import PaanPhoolImg from "../assets/images/PaanPhool.png";
 import DiscordBot from "../assets/images/DiscordBot.png";
 import LocalStorageWrapper from "../assets/images/localStorageWrapper.png";
 import SpotSeeker from "../assets/images/SpotSeeker.jpg";
-import athexDashboard from "../assets/images/athex-dashboard.png"
+import athexDashboard from "../assets/images/athex-dashboard.png";
 
 interface Project {
     name: string;
