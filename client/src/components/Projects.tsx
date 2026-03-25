@@ -8,7 +8,7 @@ import DiscordBot from "../assets/images/DiscordBot.png";
 import LocalStorageWrapper from "../assets/images/localStorageWrapper.png";
 import SpotSeeker from "../assets/images/SpotSeeker.jpg";
 import athexDashboard from "../assets/images/athex-dashboard.png";
-import tradingExpectancyCalculator from "../assets/images/tradingExpectancyCalculator";
+import tradingExpectancyCalculator from "../assets/images/tradingExpectancyCalculator.png";
 
 interface Project {
     name: string;
