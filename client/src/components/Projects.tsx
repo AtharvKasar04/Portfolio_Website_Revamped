@@ -8,6 +8,7 @@ import DiscordBot from "../assets/images/DiscordBot.png";
 import LocalStorageWrapper from "../assets/images/localStorageWrapper.png";
 import SpotSeeker from "../assets/images/SpotSeeker.jpg";
 import athexDashboard from "../assets/images/athex-dashboard.png";
+import tradingExpectancyCalculator from "../assets/images/tradingExpectancyCalculator";
 
 interface Project {
     name: string;
@@ -26,6 +27,14 @@ const projects: Project[] = [
         image: athexDashboard,
         githubLink: "",
         deployment: ""
+    },
+    {
+        name: "Trading Expectancy Calculator with metrics",
+        description: "A data-driven trading analytics tool that calculates strategy expectancy and visualizes performance using Monte Carlo simulations to model real-world equity growth and risk.",
+        techStack: ['React', 'TypeScript', 'charts.js', 'Tailwind CSS'],
+        image: tradingExpectancyCalculator,
+        githubLink: "https://github.com/AtharvKasar04/trading-expectancy",
+        deployment: "https://trading-expectancy.vercel.app/"
     },
     {
         name: "SpotSeeker - Realtime Parking Spot detection using Arduino UNO and ESP8266",
