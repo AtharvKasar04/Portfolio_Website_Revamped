@@ -26,7 +26,7 @@ const projects: Project[] = [
         techStack: ['React', 'TypeScript', 'Node.js', 'Express.js + TypeScript', 'MongoDB'],
         image: athexDashboard,
         githubLink: "",
-        deployment: ""
+        deployment: "https://athex-six.vercel.app"
     },
     {
         name: "Trading Expectancy Calculator with metrics",
