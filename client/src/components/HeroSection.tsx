@@ -5,23 +5,25 @@ import ProfileImg from "../assets/images/Profile_Picture.png";
 import { ContainerTextFlip } from "./ContainerTextFlip";
 
 const interests = [
-  "Full-Stack Development",
-  "AI & ML Integrations",
-  "Freelancing Projects",
-  "Scalable Architectures",
-  "Premium UI/UX",
+  "Next.js & Django Apps",
+  "Open-Source",
+  "AI-First Web Platforms",
+  "IoT & Hardware Integration",
+  "Premium React Interfaces",
+  "AI Engineering",
+  "Engineering Products",
 ];
 
 const burstItems = [
   { text: "Oh, I'm an avgeek too ✈️", x: -180, y: -100, delay: 0 },
   { text: "I'm into finance too 📈", x: 180, y: -110, delay: 0.05 },
-  { text: "I love minimal UI 🎨", x: -160, y: 120, delay: 0.1 },
-  { text: "I play Minecraft 🧊", x: 170, y: 100, delay: 0.15 },
+  { text: "I love building stuff 🎨", x: -160, y: 120, delay: 0.1 },
+  { text: "I play Minecraft (none lately) 🧊", x: 200, y: 100, delay: 0.15 },
 ];
 
 const HeroSection: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
-  
+
   // Toggle this to true/false to show or hide the "Open to Work" frame
   const isOpenToWork = true;
 
@@ -34,16 +36,16 @@ const HeroSection: React.FC = () => {
       <div className="relative z-10 px-8 md:px-16 w-full flex flex-col flex-grow justify-center">
         {/* Central text & Image Area */}
         <div className="flex flex-col md:flex-row justify-between items-center w-full mt-12 md:mt-20 gap-16 md:gap-0">
-          
+
           {/* Typography - Name & Bio */}
           <div className="flex flex-col relative w-full md:w-auto z-20">
             {/* Overlapping 'I'm' with intentional background styling */}
             <div className="absolute -top-6 -left-4 bg-navy px-4 py-1 z-30 transform -rotate-3 border border-sage/30 rounded-lg shadow-xl shadow-navy/50">
               <span className="font-serif italic text-sage text-2xl md:text-3xl">I'm</span>
             </div>
-            
-            <h1 
-              className="font-display uppercase hero-name-text leading-[0.85] tracking-tighter relative z-20" 
+
+            <h1
+              className="font-display uppercase hero-name-text leading-[0.85] tracking-tighter relative z-20"
               style={{ fontSize: '15vw' }}
             >
               Atharv
@@ -62,9 +64,9 @@ const HeroSection: React.FC = () => {
 
           {/* Image and Vertical Scrolling Text */}
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 md:-ml-24 xl:ml-0 z-10 w-full md:w-auto justify-end">
-            
+
             {/* Portrait Image with Bursting Text Blocks */}
-            <div 
+            <div
               className="relative"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
@@ -88,10 +90,10 @@ const HeroSection: React.FC = () => {
               <div className="relative w-48 h-48 md:w-64 md:h-64 shrink-0 rounded-full p-[4px] profile-noise-border shadow-2xl shadow-[#3b899a]/20 z-10">
                 <div className="w-full h-full rounded-full overflow-hidden bg-navy relative">
                   <img src={ProfileImg} alt="Atharv Kasar" className="w-full h-full object-cover grayscale md:hover:grayscale-0 transition-all duration-700" />
-                  
+
                   {/* Open To Work Overlay */}
                   {isOpenToWork && (
-                    <div 
+                    <div
                       className="absolute inset-0 z-20 pointer-events-none drop-shadow-lg"
                       style={{
                         WebkitMaskImage: 'conic-gradient(from 120deg at 50% 50%, transparent 0deg, black 25deg, black 95deg, transparent 120deg)',
@@ -116,13 +118,13 @@ const HeroSection: React.FC = () => {
             {/* 3D Dial Scrolling Interests Text */}
             <div className="flex flex-col items-start justify-center shrink-0 w-full md:w-96 mt-6 md:mt-0">
               <span className="font-serif italic text-taupe text-lg md:text-xl mb-2 ml-2">I'm interested in...</span>
-              
+
               <div className="w-full">
-                <ContainerTextFlip 
-                  words={interests} 
-                  interval={3500} 
+                <ContainerTextFlip
+                  words={interests}
+                  interval={3500}
                   className="!bg-navy !shadow-none !border !border-white/10 !bg-none bg-white/[0.02] backdrop-blur-md px-6 py-4"
-                  textClassName="font-display uppercase text-white text-xl md:text-3xl tracking-wide" 
+                  textClassName="font-display uppercase text-white text-xl md:text-3xl tracking-wide"
                 />
               </div>
             </div>

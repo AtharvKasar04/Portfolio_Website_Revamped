@@ -72,40 +72,45 @@ const TerminalInteractive: React.FC = () => {
     }
   }, [isInView, history.length]);
 
+  // Reusable function for gravity confirm (used by keyboard and mobile buttons)
+  const handleGravityConfirm = async (key: string) => {
+    if (!isAwaitingConfirm) return;
+    
+    setIsAwaitingConfirm(false);
+    setIsTyping(true);
+
+    if (key === 'y') {
+      setHistory(prev => [...prev, { id: Math.random().toString(), type: 'command', text: 'y' }]);
+      await new Promise(r => setTimeout(r, 400));
+      setHistory(prev => [...prev, { id: Math.random().toString(), type: 'system', text: 'Initializing anti-gravity thrusters...' }]);
+      await new Promise(r => setTimeout(r, 800));
+      setHistory(prev => [...prev, { id: Math.random().toString(), type: 'danger', text: 'Gravity suspended.' }]);
+      
+      document.body.classList.add('zero-gravity');
+      
+      // Show gravity achievement
+      setTimeout(() => {
+        addToast("Isaac Newton is Crying", "What goes up... comes down in 15s!", "apple");
+      }, 1000);
+      
+      // Restore gravity after 15 seconds
+      setTimeout(() => {
+        document.body.classList.remove('zero-gravity');
+        setHistory(prev => [...prev, { id: Math.random().toString(), type: 'system', text: 'Gravity restored to normal levels.' }]);
+      }, 16000); // 1s delay + 15s effect
+    } else {
+      setHistory(prev => [...prev, { id: Math.random().toString(), type: 'command', text: key === 'n' ? 'n' : key }]);
+      await new Promise(r => setTimeout(r, 300));
+      setHistory(prev => [...prev, { id: Math.random().toString(), type: 'system', text: 'Operation aborted.' }]);
+    }
+    setIsTyping(false);
+  };
+
   // Keyboard Listener for Gravity Confirm
   useEffect(() => {
-    const handleKeyDown = async (e: KeyboardEvent) => {
-      if (!isAwaitingConfirm) return;
-      
+    const handleKeyDown = (e: KeyboardEvent) => {
       const key = e.key.toLowerCase();
-      setIsAwaitingConfirm(false);
-      setIsTyping(true);
-
-      if (key === 'y') {
-        setHistory(prev => [...prev, { id: Math.random().toString(), type: 'command', text: 'y' }]);
-        await new Promise(r => setTimeout(r, 400));
-        setHistory(prev => [...prev, { id: Math.random().toString(), type: 'system', text: 'Initializing anti-gravity thrusters...' }]);
-        await new Promise(r => setTimeout(r, 800));
-        setHistory(prev => [...prev, { id: Math.random().toString(), type: 'danger', text: 'Gravity suspended.' }]);
-        
-        document.body.classList.add('zero-gravity');
-        
-        // Show gravity achievement
-        setTimeout(() => {
-          addToast("Isaac Newton is Crying", "What goes up... comes down in 15s!", "apple");
-        }, 1000);
-        
-        // Restore gravity after 15 seconds
-        setTimeout(() => {
-          document.body.classList.remove('zero-gravity');
-          setHistory(prev => [...prev, { id: Math.random().toString(), type: 'system', text: 'Gravity restored to normal levels.' }]);
-        }, 16000); // 1s delay + 15s effect
-      } else {
-        setHistory(prev => [...prev, { id: Math.random().toString(), type: 'command', text: key === 'n' ? 'n' : key }]);
-        await new Promise(r => setTimeout(r, 300));
-        setHistory(prev => [...prev, { id: Math.random().toString(), type: 'system', text: 'Operation aborted.' }]);
-      }
-      setIsTyping(false);
+      handleGravityConfirm(key);
     };
 
     if (isAwaitingConfirm) {
@@ -169,7 +174,24 @@ const TerminalInteractive: React.FC = () => {
         </div>
 
         {/* Mac Terminal UI */}
-        <div className="w-full rounded-xl overflow-hidden bg-[#1c1c1c] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+        <div className="w-full rounded-xl overflow-hidden bg-[#1c1c1c] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative">
+          
+          {/* Mobile Confirm Overlay */}
+          {isAwaitingConfirm && (
+            <div className="md:hidden absolute inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+               <div className="bg-[#ff5555] p-1 w-full max-w-[250px]">
+                   <div className="bg-[#1c1c1c] p-4 border-2 border-[#ff5555] flex flex-col items-center text-center gap-4">
+                       <span className="text-[#ff5555] font-display uppercase tracking-widest text-lg leading-none">Confirm Action</span>
+                       <span className="text-white/80 text-[10px] font-mono leading-relaxed">WARNING: Disabling gravity may cause unexpected physics.</span>
+                       <div className="flex gap-4 w-full mt-2">
+                           <button onClick={() => handleGravityConfirm('y')} className="flex-1 py-2 bg-[#ff5555]/20 text-[#ff5555] border border-[#ff5555] font-bold font-mono text-sm uppercase active:bg-[#ff5555] active:text-black transition-colors">Yes</button>
+                           <button onClick={() => handleGravityConfirm('n')} className="flex-1 py-2 bg-white/5 text-white/50 border border-white/20 font-bold font-mono text-sm uppercase active:bg-white active:text-black transition-colors">No</button>
+                       </div>
+                   </div>
+               </div>
+            </div>
+          )}
+
           {/* Title bar */}
           <div className="bg-[#2d2d2d] w-full h-8 flex items-center px-4 gap-2 border-b border-white/5">
             <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
