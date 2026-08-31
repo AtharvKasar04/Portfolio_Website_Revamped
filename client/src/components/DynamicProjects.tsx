@@ -55,9 +55,9 @@ const DynamicProjects: React.FC = () => {
          <div className="relative inline-block">
            <h2 className="font-display text-5xl md:text-8xl uppercase tracking-tighter">See what I've built</h2>
            {/* Aesthetic Hover Tip */}
-           <div className="absolute -top-6 -right-2 md:-top-8 md:-right-12 lg:-right-24 animate-float" style={{ animationDelay: '1s' }}>
-             <div className="flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-white/5 border border-white/10 rounded-full backdrop-blur-md shadow-[0_0_20px_rgba(255,255,255,0.03)]">
-               <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-sage animate-pulse"></div>
+           <div className="hidden md:block absolute md:-top-8 md:-right-12 lg:-right-24 animate-float" style={{ animationDelay: '1s' }}>
+             <div className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full backdrop-blur-md shadow-[0_0_20px_rgba(255,255,255,0.03)]">
+               <div className="w-2 h-2 rounded-full bg-sage animate-pulse"></div>
                <span className="font-mono text-[9px] md:text-xs text-taupe tracking-widest uppercase whitespace-nowrap">Hover images to reveal</span>
              </div>
            </div>

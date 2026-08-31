@@ -45,12 +45,11 @@ const HeroSection: React.FC = () => {
             </div>
 
             <h1
-              className="font-display uppercase hero-name-text leading-[0.85] tracking-tighter relative z-20"
-              style={{ fontSize: '15vw' }}
+              className="font-display uppercase hero-name-text leading-[0.85] tracking-tighter relative z-20 text-[26vw] sm:text-[22vw] md:text-[15vw]"
             >
               Atharv
             </h1>
-            <h1 className="font-display uppercase hero-name-outline leading-[0.85] tracking-tighter relative z-20" style={{ fontSize: '15vw' }}>
+            <h1 className="font-display uppercase hero-name-outline leading-[0.85] tracking-tighter relative z-20 text-[26vw] sm:text-[22vw] md:text-[15vw]">
               Kasar
             </h1>
 

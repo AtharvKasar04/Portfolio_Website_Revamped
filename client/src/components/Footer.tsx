@@ -26,7 +26,7 @@ const EmailInteractiveBlock = () => {
     >
       {/* Base Stroke Text */}
       <div 
-         className="w-full font-display text-[12vw] md:text-[9.5vw] whitespace-nowrap uppercase leading-none tracking-tighter text-transparent select-none transition-colors duration-700"
+         className="w-full font-display text-[8.5vw] md:text-[9.5vw] whitespace-nowrap uppercase leading-none tracking-tighter text-transparent select-none transition-colors duration-700"
          style={{ WebkitTextStroke: "1px rgba(255,255,255,0.15)" }}
       >
          atharvk752@gmail.com
@@ -34,7 +34,7 @@ const EmailInteractiveBlock = () => {
       
       {/* Reveal Gradient Text */}
       <div 
-        className="absolute inset-0 w-full h-full flex items-center justify-center font-display text-[12vw] md:text-[9.5vw] whitespace-nowrap uppercase leading-none tracking-tighter select-none pointer-events-none email-reveal-text transition-opacity duration-300"
+        className="absolute inset-0 w-full h-full flex items-center justify-center font-display text-[8.5vw] md:text-[9.5vw] whitespace-nowrap uppercase leading-none tracking-tighter select-none pointer-events-none email-reveal-text transition-opacity duration-300"
         style={{
           opacity: isHovered ? 1 : 0,
           WebkitMaskImage: `radial-gradient(circle 250px at ${coords.x}px ${coords.y}px, black 0%, transparent 100%)`,
@@ -50,14 +50,14 @@ const EmailInteractiveBlock = () => {
 const Footer: React.FC = () => {
   return (
     <footer id="contact" className="w-full bg-gradient-to-b from-navy from-[60%] to-black text-white pt-32 pb-8 px-8 md:px-16 flex flex-col justify-between min-h-[60vh] overflow-hidden">
-      <div className="flex flex-col w-fit mx-auto max-w-full">
+      <div className="flex flex-col w-full md:w-fit mx-auto max-w-full">
         {/* Top Header Section */}
-        <div className="flex flex-col md:flex-row items-end justify-between w-full mb-16 md:mb-24 mt-8">
-          <h2 className="font-display text-6xl md:text-[8rem] uppercase leading-none tracking-tighter footer-gradient-text m-0 whitespace-nowrap">
+        <div className="flex flex-col md:flex-row items-center md:items-end justify-between w-full mb-16 md:mb-24 mt-8">
+          <h2 className="font-display text-[22vw] sm:text-[18vw] md:text-[8rem] uppercase leading-[0.85] md:leading-none tracking-tighter footer-gradient-text m-0 whitespace-normal md:whitespace-nowrap text-center md:text-left">
             Let's Create
           </h2>
           <div className="flex-1 hidden md:block border-b border-white/10 mx-6 mb-4"></div>
-          <p className="font-serif italic text-[#e6ccbc] text-xl md:text-3xl max-w-sm text-right mt-6 md:mt-0 pb-2">
+          <p className="font-serif italic text-[#e6ccbc] text-xl md:text-3xl max-w-sm mt-6 md:mt-0 pb-2 text-center md:text-right">
             Open to new opportunities, collaborations, and ideas.
           </p>
         </div>
@@ -66,8 +66,8 @@ const Footer: React.FC = () => {
         <EmailInteractiveBlock />
       </div>
 
-      <div className="w-full border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-[12px] uppercase tracking-widest text-white/60">
+      <div className="w-full border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-4">
+        <p className="text-[10px] md:text-[12px] uppercase tracking-widest text-white/60 text-center leading-relaxed px-4 md:px-0">
           Fueled by ☕ and late-night debugging. Designed & Developed by Atharv Kasar.
         </p>
         <div className="flex gap-8">
