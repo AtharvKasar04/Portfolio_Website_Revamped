@@ -2,10 +2,10 @@ import React from "react";
 
 const experiences = [
   {
-    tenure: "Jun 2026 - Present",
+    tenure: "Jun 2026 - Aug 2026",
     role: "Full Stack Software Engineer Intern",
     company: "Stellanex Pvt. Ltd",
-    details: "Working on the Xypher Engine - a robotics dev platform. Handling the web architecture side: auth flows, dashboards, documentation portals, and design partner pages across a decoupled Next.js + Django stack. Also built out the API architecture with JWT/session auth, Zod validation, CSRF protection, and rate limiting."
+    details: "Worked on the Xypher Engine - a robotics dev platform. Handling the web architecture side: auth flows, dashboards, documentation portals, and design partner pages across a decoupled Next.js + Django stack. Also built out the API architecture with JWT/session auth, Zod validation, CSRF protection, and rate limiting."
   },
   {
     tenure: "Sep 2025 - Nov 2025",
