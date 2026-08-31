@@ -23,7 +23,6 @@ const ToastItem: React.FC<{
 }> = ({ toast, removeToast, isActive }) => {
   const [hovered, setHovered] = useState(false);
   const remainingRef = useRef(TOAST_DURATION * 1000);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   // Precise JS timer that respects pause-on-hover
   useEffect(() => {
