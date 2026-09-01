@@ -11,6 +11,21 @@
   --color-cyan: #d5f4f9;
   --color-soft-blue: #bbe2f5;
   --color-charcoal: #302b2f;
+
+  --animate-tubelight-flicker: tubelight-flicker 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  
+  @keyframes tubelight-flicker {
+    0%   { opacity: 0; }
+    10%  { opacity: 1; }
+    20%  { opacity: 0; }
+    30%  { opacity: 0.8; }
+    40%  { opacity: 0; }
+    50%  { opacity: 1; }
+    60%  { opacity: 0.5; }
+    70%  { opacity: 1; }
+    80%  { opacity: 0.8; }
+    100% { opacity: 1; }
+  }
 }
 
 @layer base {
@@ -34,6 +49,16 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     cursor: crosshair;
+  }
+
+  img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    user-select: none;
+    -webkit-user-select: none;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -83,25 +108,58 @@
     z-index: -1;
   }
 
-  /* Button noise utilities */
-  .btn-noise-primary:hover {
-    background: 
-      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"),
-      linear-gradient(45deg, var(--cyan), var(--soft-blue), #ffffff);
-    background-size: 80px 80px, 100% 100%;
-    background-blend-mode: overlay;
-    color: var(--navy) !important;
-    border-color: transparent !important;
+  /* Button noise utilities (Smooth Pseudo-element transitions) */
+  .btn-noise-primary, .btn-noise-secondary {
+    position: relative;
+    isolation: isolate; /* Creates stacking context for z-index: -1 */
+    overflow: hidden;
   }
 
-  .btn-noise-secondary:hover {
-    background: 
-      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"),
-      linear-gradient(45deg, var(--sage), var(--taupe), var(--beige));
-    background-size: 80px 80px, 100% 100%;
-    background-blend-mode: color-burn;
-    color: var(--navy) !important;
-    border-color: transparent !important;
+  .btn-noise-primary::before, .btn-noise-secondary::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    border-radius: inherit;
+  }
+
+  /* Desktop hover states */
+  @media (hover: hover) {
+    /* Primary Button */
+    .btn-noise-primary::before {
+      background: 
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"),
+        linear-gradient(45deg, var(--cyan), var(--soft-blue), #ffffff);
+      background-size: 80px 80px, 100% 100%;
+      background-blend-mode: overlay;
+    }
+    
+    .btn-noise-primary:hover {
+      color: var(--navy) !important;
+      border-color: transparent !important;
+    }
+    .btn-noise-primary:hover::before {
+      opacity: 1;
+    }
+
+    /* Secondary Button */
+    .btn-noise-secondary::before {
+      background: 
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"),
+        linear-gradient(45deg, var(--sage), var(--taupe), var(--beige));
+      background-size: 80px 80px, 100% 100%;
+      background-blend-mode: color-burn;
+    }
+    
+    .btn-noise-secondary:hover {
+      color: var(--navy) !important;
+      border-color: transparent !important;
+    }
+    .btn-noise-secondary:hover::before {
+      opacity: 1;
+    }
   }
 }
 

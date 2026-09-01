@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
+import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 import ProfileImg from "../assets/images/Profile_Picture.png";
 
@@ -7,30 +8,35 @@ const navLinks = [
   { name: 'Works', id: 'works' },
   { name: 'Experience', id: 'experience' },
   { name: 'Capabilities', id: 'capabilities' },
+  { name: 'Contact', id: 'contact' },
 ];
 
 const NavbarContent: React.FC = () => {
-  const [activeSection, setActiveSection] = useState<string>('');
+  const [activeSection, setActiveSection] = useState<string>('top');
+  const [isInitialLoad, setIsInitialLoad] = useState<boolean>(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsInitialLoad(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Use a threshold close to the top for more accurate active state detection
-      const scrollPosition = window.scrollY + window.innerHeight / 3;
+      const viewportHeight = window.innerHeight;
+      let currentSection = 'top'; // Default to top section
       
-      let currentSection = '';
-      
+      // Iterate through links to find which section is currently active
       for (const link of navLinks) {
         const element = document.getElementById(link.id);
-        if (element && element.offsetTop <= scrollPosition) {
-          currentSection = link.id;
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          // If the top of the element is above the middle of the screen (or 1/3 down)
+          if (rect.top <= viewportHeight / 2.5) {
+            currentSection = link.id;
+          }
         }
       }
       
-      // If we are at the top, clear active section
-      if (window.scrollY < 200) {
-        currentSection = '';
-      }
-
       setActiveSection(currentSection);
     };
 
@@ -54,43 +60,79 @@ const NavbarContent: React.FC = () => {
         top: "24px",
         left: "50%",
         transform: "translateX(-50%)",
-        width: "min(90%, 900px)",
+        width: "min(95%, 1050px)",
         zIndex: 9999,
       }}
-      className="px-6 py-4 md:px-10 md:py-4 nav-glass-noise flex justify-between items-center shadow-2xl shadow-black/30"
+      className="px-5 py-2.5 md:px-8 md:py-4 nav-glass-noise flex justify-center md:justify-between items-center shadow-2xl shadow-black/30"
     >
       <div
         className="flex items-center gap-3 md:gap-4 cursor-pointer relative z-10 group"
         onClick={() => scrollTo('top')}
       >
-        <img src={ProfileImg} alt="Atharv" className="w-8 h-8 md:w-10 md:h-10 rounded-full object-cover border border-white/20 shadow-md transition-transform md:group-hover:scale-105" />
-        <span className="font-display text-lg md:text-xl tracking-widest text-white uppercase md:group-hover:text-sage transition-colors">
+        {activeSection === 'top' && (
+          <motion.div
+            layoutId="navTubelight"
+            className={`hidden md:flex absolute inset-x-0 -top-[16px] h-[calc(100%+16px)] pointer-events-none flex-col items-center z-0 ${isInitialLoad ? 'animate-tubelight-flicker' : ''}`}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          >
+            {/* The Tube / Bar at the top edge */}
+            <div className="w-1/2 h-[3px] bg-white shadow-[0_0_12px_3px_rgba(255,255,255,0.8)] rounded-b-full"></div>
+            {/* The Expanding Light Beam */}
+            <div 
+              className="w-[150%] flex-1 bg-gradient-to-b from-white/20 to-transparent blur-[4px]" 
+              style={{ clipPath: 'polygon(30% 0%, 70% 0%, 100% 100%, 0% 100%)' }}
+            ></div>
+          </motion.div>
+        )}
+        
+        <img src={ProfileImg} alt="Atharv" className="w-8 h-8 md:w-10 md:h-10 rounded-full object-cover border border-white/20 shadow-md transition-transform md:group-hover:scale-105 relative z-10" />
+        <span className="font-display text-lg md:text-xl tracking-widest text-white uppercase md:group-hover:text-sage transition-colors relative z-10 whitespace-nowrap">
           ATHARV KASAR
         </span>
       </div>
 
-      <div className="hidden md:flex gap-10 relative z-10">
+      <div className="hidden lg:flex gap-1 relative z-10">
         {navLinks.map((item) => (
           <button
             key={item.id}
             onClick={() => scrollTo(item.id)}
-            className={`text-[11px] uppercase tracking-[0.2em] transition-all duration-300 font-semibold cursor-crosshair
-              ${activeSection === item.id 
-                ? 'text-sage scale-105' 
-                : 'text-white/80 md:hover:text-white md:hover:opacity-100'
-              }`}
+            className="relative px-4 py-2 text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-semibold cursor-crosshair group"
           >
-            {item.name}
+            {/* Sliding tubelight/flashlight background */}
+            {activeSection === item.id && (
+              <motion.div
+                layoutId="navTubelight"
+                className="absolute inset-x-0 -top-[16px] h-[calc(100%+16px)] pointer-events-none flex flex-col items-center z-0"
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              >
+                {/* The Tube / Bar at the top edge */}
+                <div className="w-1/2 h-[3px] bg-white shadow-[0_0_12px_3px_rgba(255,255,255,0.8)] rounded-b-full"></div>
+                {/* The Expanding Light Beam */}
+                <div 
+                  className="w-[150%] flex-1 bg-gradient-to-b from-white/20 to-transparent blur-[4px]" 
+                  style={{ clipPath: 'polygon(30% 0%, 70% 0%, 100% 100%, 0% 100%)' }}
+                ></div>
+              </motion.div>
+            )}
+            
+            {/* Link Text */}
+            <span className={`relative z-10 transition-all duration-300 ${
+              activeSection === item.id 
+                ? 'text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]' 
+                : 'text-white/50 group-hover:text-white/90'
+            }`}>
+              {item.name}
+            </span>
           </button>
         ))}
       </div>
 
-      <div className="relative z-10">
+      <div className="hidden sm:block relative z-10">
         <a
           href="https://github.com/AtharvKasar04"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 border border-white/50 text-[12px] uppercase tracking-widest px-6 py-3 rounded-full transition-all duration-300 btn-noise-primary md:hover:scale-105 md:hover:border-transparent font-semibold text-white"
+          className="flex items-center gap-2 border border-white/50 text-[11px] uppercase tracking-widest px-5 py-2.5 rounded-full transition-all duration-300 btn-noise-primary md:hover:scale-105 md:hover:border-transparent font-semibold text-white"
         >
           <FaGithub className="text-lg" />
           GitHub

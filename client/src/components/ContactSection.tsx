@@ -20,14 +20,14 @@ const ContactSection: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-6 items-center">
             <a 
               href="mailto:atharvk752@gmail.com" 
-              className="flex items-center gap-3 bg-white text-navy px-8 py-4 rounded-full uppercase tracking-widest text-sm transition-transform font-bold shadow-lg md:hover:scale-105 md:hover:shadow-white/20"
+              className="flex items-center gap-3 bg-white text-navy px-8 py-4 rounded-full uppercase tracking-widest text-sm transition-all duration-300 font-bold shadow-lg md:hover:scale-105 md:hover:shadow-white/20 btn-noise-primary"
             >
               <FaEnvelope className="text-lg" /> Email Me
             </a>
             <a 
               href="/resume.pdf" 
               download="Atharv_Kasar_Resume.pdf"
-              className="flex items-center gap-3 border-2 border-white/30 text-white px-8 py-4 rounded-full uppercase tracking-widest text-sm transition-all font-semibold md:hover:bg-white/10 md:hover:border-white/50 md:hover:scale-105"
+              className="flex items-center gap-3 border-2 border-white/30 text-white px-8 py-4 rounded-full uppercase tracking-widest text-sm transition-all duration-300 font-semibold md:hover:scale-105 btn-noise-secondary"
             >
               <FaFileDownload className="text-lg" /> Download Resume
             </a>

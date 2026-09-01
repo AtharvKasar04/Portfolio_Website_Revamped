@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaLinkedin, FaFilePdf } from "react-icons/fa";
 import ProfileImg from "../assets/images/Profile_Picture.png";
 import { ContainerTextFlip } from "./ContainerTextFlip";
 
@@ -55,9 +56,77 @@ const HeroSection: React.FC = () => {
 
             {/* Bio Paragraph Moved Here */}
             <div className="max-w-sm md:max-w-md mt-8 md:mt-12 ml-2">
-              <p className="text-white/80 text-sm md:text-base leading-relaxed font-light border-l-2 border-sage/50 pl-6">
+              <p className="text-white/80 text-sm md:text-base leading-relaxed font-light border-l-2 border-sage/50 pl-6 mb-8">
                 Full-Stack Engineer working across React, Next.js, Node.js, TypeScript, and Python. I've shipped real products from SaaS dashboards to AI-integrated platforms, and I care about writing code that actually holds up in production.
               </p>
+              
+              {/* Call to Action Buttons */}
+              <div className="flex items-center gap-4 pl-6 relative w-fit">
+                <a
+                  href="https://www.linkedin.com/in/atharv-kasar-03aa34258/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 bg-white text-navy px-5 py-2.5 rounded-full font-semibold text-xs uppercase tracking-widest transition-all duration-300 md:hover:scale-105 shadow-[0_0_15px_rgba(255,255,255,0.2)] btn-noise-primary"
+                >
+                  <FaLinkedin className="text-lg text-[#0A66C2]" />
+                  LinkedIn
+                </a>
+                <a
+                  href="/resume.pdf" // Placeholder or actual path
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 border border-white/30 text-white px-5 py-2.5 rounded-full font-semibold text-xs uppercase tracking-widest transition-all duration-300 md:hover:scale-105 btn-noise-secondary relative z-10"
+                >
+                  <FaFilePdf className="text-lg" />
+                  View Resume
+                </a>
+
+                {/* Hand Drawn Arrow & Text */}
+                <div className="absolute -top-10 -right-24 md:-top-10 md:-right-44 hidden sm:flex flex-col items-center pointer-events-none rotate-3 z-20">
+                  <div 
+                    style={{ fontFamily: "'Caveat', cursive" }} 
+                    className="text-yellow-400 text-2xl md:text-3xl tracking-wide whitespace-nowrap mb-1 flex drop-shadow-[0_0_8px_rgba(250,204,21,0.6)]"
+                  >
+                    {"Grab a copy!".split("").map((char, index) => (
+                      <motion.span
+                        key={index}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.1, delay: 1.5 + index * 0.06 }}
+                      >
+                        {char === " " ? "\u00A0" : char}
+                      </motion.span>
+                    ))}
+                  </div>
+                  <svg width="120" height="80" viewBox="0 0 150 120" fill="none" className="stroke-yellow-400 opacity-90 drop-shadow-[0_0_6px_rgba(250,204,21,0.6)] -ml-28">
+                    {/* Smooth flowing hand-drawn arrow with a loop pointing left */}
+                    <motion.path 
+                      d="M 150,15 C 100,20 80,70 100,70 C 120,70 120,40 100,40 C 70,40 40,55 18,40" 
+                      strokeWidth="3.5" 
+                      strokeLinecap="round" 
+                      initial={{ pathLength: 0, opacity: 0 }}
+                      animate={{ pathLength: 1, opacity: 1 }}
+                      transition={{ 
+                        pathLength: { duration: 1, ease: "easeInOut", delay: 2.3 },
+                        opacity: { duration: 0.01, delay: 2.3 }
+                      }}
+                    />
+                    {/* Arrow head pointing up-left */}
+                    <motion.path 
+                      d="M 32,38 L 18,40 L 25,54" 
+                      strokeWidth="3.5" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      initial={{ pathLength: 0, opacity: 0 }}
+                      animate={{ pathLength: 1, opacity: 1 }}
+                      transition={{ 
+                        pathLength: { duration: 0.3, ease: "easeOut", delay: 3.3 },
+                        opacity: { duration: 0.01, delay: 3.3 }
+                      }}
+                    />
+                  </svg>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -79,7 +148,7 @@ const HeroSection: React.FC = () => {
                     animate={{ opacity: 1, x: `calc(-50% + ${item.x}px)`, y: `calc(-50% + ${item.y}px)`, scale: 1 }}
                     exit={{ opacity: 0, x: "-50%", y: "-50%", scale: 0.5, transition: { duration: 0.3 } }}
                     transition={{ duration: 0.6, type: "spring", bounce: 0.4, delay: item.delay }}
-                    className="absolute top-1/2 left-1/2 z-0 px-4 py-2 burst-block-bg rounded-full backdrop-blur-md whitespace-nowrap pointer-events-none shadow-lg border border-white/20"
+                    className="hidden md:block absolute top-1/2 left-1/2 z-0 px-4 py-2 burst-block-bg rounded-full backdrop-blur-md whitespace-nowrap pointer-events-none shadow-lg border border-white/20"
                   >
                     <span className="font-serif italic text-sm font-semibold tracking-wide">{item.text}</span>
                   </motion.div>

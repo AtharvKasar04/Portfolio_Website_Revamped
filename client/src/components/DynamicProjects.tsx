@@ -4,11 +4,12 @@ import SpotSeeker from "../assets/images/SpotSeeker.jpg";
 import LocalStorageWrapper from "../assets/images/localStorageWrapper.png";
 import tradingExpectancyCalculator from "../assets/images/tradingExpectancyCalculator.png";
 import athexDashboard from "../assets/images/athex-dashboard.png";
+import BacktestingEngine from "../assets/images/BacktestingEngine.jpg";
 
 const projects = [
   { 
-    name: "Athex Analytics", 
-    type: "Full Stack", 
+    name: "Athex Analytics: Prop Firm Dashboard", 
+    type: "Unified prop firm tracking and analytics SaaS", 
     image: athexDashboard, 
     whatItDoes: "A full-stack SaaS that helps traders track, manage, and analyze multiple prop firm accounts in one unified dashboard.",
     whyIBuiltIt: "To solve the fragmented tracking problem traders face when managing accounts across different proprietary trading firms.",
@@ -17,8 +18,18 @@ const projects = [
     live: "https://athex-six.vercel.app"
   },
   { 
-    name: "Trading Expectancy", 
-    type: "Web App", 
+    name: "Quantitative Backtesting Engine", 
+    type: "Institutional-grade strategy simulation engine", 
+    image: BacktestingEngine, 
+    whatItDoes: "A high-performance Python backtesting engine built with Pandas and PyArrow for evaluating quantitative trading strategies and processing large financial datasets.",
+    whyIBuiltIt: "To engineer a robust, scalable infrastructure for data validation and strategy simulation from scratch, rather than relying on bloated off-the-shelf frameworks.",
+    techStack: ["Python", "Pandas", "PyArrow", "FastAPI", "Plotly"],
+    github: "",
+    live: ""
+  },
+  { 
+    name: "Trading Expectancy Calculator", 
+    type: "Monte Carlo equity curve and edge modeling tool", 
     image: tradingExpectancyCalculator, 
     whatItDoes: "Calculates strategy expectancy and visualizes performance using Monte Carlo simulations.",
     whyIBuiltIt: "To provide a data-driven tool for traders to model real-world equity growth and test their edge.",
@@ -27,8 +38,8 @@ const projects = [
     live: "https://trading-expectancy.vercel.app/"
   },
   { 
-    name: "SpotSeeker", 
-    type: "IoT Integration", 
+    name: "SpotSeeker: Smart IoT Parking", 
+    type: "Real-time hardware sensor parking availability dashboard", 
     image: SpotSeeker, 
     whatItDoes: "A real-time parking spot detection system displaying available spots on a React-based web dashboard.",
     whyIBuiltIt: "To build a smart parking solution leveraging IR sensors, microcontrollers, and IoT APIs for real-time data tracking.",
@@ -37,8 +48,8 @@ const projects = [
     live: ""
   },
   { 
-    name: "Local Storage Wrapper", 
-    type: "NPM Package", 
+    name: "LS-Wrapper: NPM Utility", 
+    type: "Lightweight open-source browser storage manager library", 
     image: LocalStorageWrapper, 
     whatItDoes: "A lightweight NPM library simplifying browser local storage management with wrapped get, set, and remove functions.",
     whyIBuiltIt: "To master the process of creating and publishing open-source NPM packages, writing unit tests, and structuring documentation.",
