@@ -26,6 +26,23 @@
     80%  { opacity: 0.8; }
     100% { opacity: 1; }
   }
+
+  --animate-flashlight-start: flashlight-start 1.2s steps(2, end) forwards;
+
+  @keyframes flashlight-start {
+    0%   { opacity: 1; }
+    10%  { opacity: 0.1; }
+    20%  { opacity: 1; }
+    30%  { opacity: 0.4; }
+    40%  { opacity: 1; }
+    50%  { opacity: 0.1; }
+    60%  { opacity: 1; }
+    70%  { opacity: 0.2; }
+    80%  { opacity: 0.8; }
+    90%  { opacity: 0; }
+    95%  { opacity: 0.5; }
+    100% { opacity: 0; }
+  }
 }
 
 @layer base {

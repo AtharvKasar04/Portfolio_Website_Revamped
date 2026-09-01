@@ -7,6 +7,7 @@ import WorkExperience from "./components/WorkExperience";
 import CapabilitiesSection from "./components/CapabilitiesSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
+import ExtremeDarkMode from "./components/ExtremeDarkMode";
 import "./assets/styles/App.css";
 
 const App: React.FC = () => {
@@ -51,6 +52,7 @@ const App: React.FC = () => {
           <Footer />
         </div>
       </div>
+      <ExtremeDarkMode />
     </ReactLenis>
   );
 };
