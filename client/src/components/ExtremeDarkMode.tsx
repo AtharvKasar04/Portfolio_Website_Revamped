@@ -37,7 +37,6 @@ const LampSwitch: React.FC<{ onTrigger: (coords: { x: number, y: number }) => vo
   const svgRef = useRef<SVGSVGElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
   const circleRef = useRef<SVGCircleElement>(null);
-  const overlayRef = useRef<HTMLDivElement>(null); // invisible drag target
 
   // Ball position in SVG coordinates - starts at anchor (top), drops to REST_Y
   const ballX = useMotionValue(ANCHOR_X);
@@ -84,7 +83,7 @@ const LampSwitch: React.FC<{ onTrigger: (coords: { x: number, y: number }) => vo
     ballY.set(REST_Y + dy);
   };
 
-  const handlePointerUp = (e: React.PointerEvent) => {
+  const handlePointerUp = (_e: React.PointerEvent) => {
     const dy = ballY.get() - REST_Y;
 
     // Trigger if pulled down enough
