@@ -1,63 +1,51 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
-import SpotSeeker from "../assets/images/SpotSeeker.jpg";
-import LocalStorageWrapper from "../assets/images/localStorageWrapper.png";
-import tradingExpectancyCalculator from "../assets/images/tradingExpectancyCalculator.png";
-import athexDashboard from "../assets/images/athex-dashboard.png";
-import BacktestingEngine from "../assets/images/BacktestingEngine.jpg";
+import { Link } from "react-router-dom";
+import { projects } from "../constants/projectsData";
 
-const projects = [
-  { 
-    name: "Athex Analytics: Prop Firm Dashboard", 
-    type: "Unified prop firm tracking and analytics SaaS", 
-    image: athexDashboard, 
-    whatItDoes: "A full-stack SaaS that helps traders track, manage, and analyze multiple prop firm accounts in one unified dashboard.",
-    whyIBuiltIt: "To solve the fragmented tracking problem traders face when managing accounts across different proprietary trading firms.",
-    techStack: ["React", "TypeScript", "Node.js", "MongoDB"],
-    github: "",
-    live: "https://athex-six.vercel.app"
-  },
-  { 
-    name: "Quantitative Backtesting Engine", 
-    type: "Institutional-grade strategy simulation engine", 
-    image: BacktestingEngine, 
-    whatItDoes: "A high-performance Python backtesting engine built with Pandas and PyArrow for evaluating quantitative trading strategies and processing large financial datasets.",
-    whyIBuiltIt: "To engineer a robust, scalable infrastructure for data validation and strategy simulation from scratch, rather than relying on bloated off-the-shelf frameworks.",
-    techStack: ["Python", "Pandas", "PyArrow", "FastAPI", "Plotly"],
-    github: "",
-    live: ""
-  },
-  { 
-    name: "Trading Expectancy Calculator", 
-    type: "Monte Carlo equity curve and edge modeling tool", 
-    image: tradingExpectancyCalculator, 
-    whatItDoes: "Calculates strategy expectancy and visualizes performance using Monte Carlo simulations.",
-    whyIBuiltIt: "To provide a data-driven tool for traders to model real-world equity growth and test their edge.",
-    techStack: ["React", "TypeScript", "Chart.js", "Tailwind CSS"],
-    github: "https://github.com/AtharvKasar04/trading-expectancy",
-    live: "https://trading-expectancy.vercel.app/"
-  },
-  { 
-    name: "SpotSeeker: Smart IoT Parking", 
-    type: "Real-time hardware sensor parking availability dashboard", 
-    image: SpotSeeker, 
-    whatItDoes: "A real-time parking spot detection system displaying available spots on a React-based web dashboard.",
-    whyIBuiltIt: "To build a smart parking solution leveraging IR sensors, microcontrollers, and IoT APIs for real-time data tracking.",
-    techStack: ["ReactJS", "Arduino", "ESP8266 (NodeMCU)", "ThingSpeak IoT", "Sensors"],
-    github: "",
-    live: ""
-  },
-  { 
-    name: "LS-Wrapper: NPM Utility", 
-    type: "Lightweight open-source browser storage manager library", 
-    image: LocalStorageWrapper, 
-    whatItDoes: "A lightweight NPM library simplifying browser local storage management with wrapped get, set, and remove functions.",
-    whyIBuiltIt: "To master the process of creating and publishing open-source NPM packages, writing unit tests, and structuring documentation.",
-    techStack: ["JavaScript", "Jest", "NPM"],
-    github: "https://github.com/AtharvKasar04/localStorage-wrapper.git",
-    live: "https://www.npmjs.com/package/b-local-storage-wrapper"
-  },
-];
+// A sleek, brutalist auto-fading image carousel for multiple project images
+const AutoImageCarousel: React.FC<{ images: string[]; alt: string }> = ({ images, alt }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (images.length <= 1) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 4500); // 4.5 seconds per slide
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  if (images.length <= 1) {
+    return <img src={images[0]} alt={alt} className="w-full h-full object-cover md:transition-transform md:duration-700 md:group-hover:scale-105" />;
+  }
+
+  return (
+    <div className="relative w-full h-full bg-navy/50">
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={currentIndex}
+          src={images[currentIndex]}
+          alt={`${alt} view ${currentIndex + 1}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.6, ease: "easeInOut" }} // Fast, smooth crossfade
+          className="absolute inset-0 w-full h-full object-cover md:transition-transform md:duration-700 md:group-hover:scale-105"
+        />
+      </AnimatePresence>
+      {/* Subtle bottom indicators */}
+      <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-0">
+        {images.map((_, idx) => (
+          <div
+            key={idx}
+            className={`h-[2px] transition-all duration-700 ${idx === currentIndex ? 'w-6 bg-white/80' : 'w-2 bg-white/30'}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const DynamicProjects: React.FC = () => {
   return (
@@ -85,7 +73,11 @@ const DynamicProjects: React.FC = () => {
 
             {/* Image Container with Desktop Hover Details */}
             <div className="relative w-full aspect-video group overflow-hidden shadow-2xl rounded-sm">
-              <img src={proj.image} alt={proj.name} className="w-full h-full object-cover md:transition-transform md:duration-700 md:group-hover:scale-105" />
+              {proj.images ? (
+                <AutoImageCarousel images={proj.images} alt={proj.name} />
+              ) : (
+                <img src={proj.image} alt={proj.name} className="w-full h-full object-cover md:transition-transform md:duration-700 md:group-hover:scale-105" />
+              )}
               
               {/* Desktop Only: Static Noise Overlay & Details */}
               <div 
@@ -98,12 +90,8 @@ const DynamicProjects: React.FC = () => {
               >
                  <div className="opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100 flex flex-col gap-8">
                     <div>
-                      <span className="font-bold uppercase tracking-widest text-sm text-sage block mb-2">What it does</span>
-                      <p className="leading-relaxed font-light text-white/95 text-lg">{proj.whatItDoes}</p>
-                    </div>
-                    <div>
-                      <span className="font-bold uppercase tracking-widest text-sm text-sage block mb-2">Why I built it</span>
-                      <p className="leading-relaxed font-light text-white/95 text-lg">{proj.whyIBuiltIt}</p>
+                      <span className="font-bold uppercase tracking-widest text-sm text-sage block mb-2">Description</span>
+                      <p className={`leading-relaxed font-light text-white/95 text-lg ${proj.hasDetails ? 'line-clamp-3' : ''}`}>{proj.description}</p>
                     </div>
                     <div>
                       <span className="font-bold uppercase tracking-widest text-sm text-sage block mb-3">Tech Stack</span>
@@ -122,12 +110,8 @@ const DynamicProjects: React.FC = () => {
             {/* Mobile Only: Details Block */}
             <div className="flex flex-col gap-6 mt-6 md:hidden">
                 <div>
-                  <span className="font-bold uppercase tracking-widest text-xs text-sage block mb-1">What it does</span>
-                  <p className="leading-relaxed font-light text-white/90 text-sm">{proj.whatItDoes}</p>
-                </div>
-                <div>
-                  <span className="font-bold uppercase tracking-widest text-xs text-sage block mb-1">Why I built it</span>
-                  <p className="leading-relaxed font-light text-white/90 text-sm">{proj.whyIBuiltIt}</p>
+                  <span className="font-bold uppercase tracking-widest text-xs text-sage block mb-1">Description</span>
+                  <p className={`leading-relaxed font-light text-white/90 text-sm ${proj.hasDetails ? 'line-clamp-4' : ''}`}>{proj.description}</p>
                 </div>
                 <div>
                   <span className="font-bold uppercase tracking-widest text-xs text-sage block mb-2">Tech Stack</span>
@@ -150,6 +134,17 @@ const DynamicProjects: React.FC = () => {
                   <FaGithub className="text-xl md:text-2xl" /> Code
                 </a>
             </div>
+            {proj.hasDetails && (
+              <div className="relative group w-full mt-6">
+                <div className="absolute inset-0 bg-sage/40 blur-xl rounded-sm group-hover:bg-sage/70 transition-colors duration-500 animate-pulse"></div>
+                <Link 
+                  to={`/project/${proj.id}`}
+                  className="relative w-full py-4 bg-white text-navy flex items-center justify-center uppercase tracking-widest text-xs md:text-sm font-black rounded-sm transition-transform duration-300 group-hover:scale-[1.02]"
+                >
+                  Deep Dive: View Architecture
+                </Link>
+              </div>
+            )}
           </div>
         ))}
       </div>
